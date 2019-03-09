@@ -109,6 +109,16 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7360466170735209551, guid: fc81c6b2eeb01ee4b985f63d4a70acc8,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1954908949
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360466170735209551, guid: fc81c6b2eeb01ee4b985f63d4a70acc8,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc81c6b2eeb01ee4b985f63d4a70acc8, type: 3}
 --- !u!4 &6014784511550467542 stripped
