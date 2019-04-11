@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.pixeye.ecs": "https://github.com/dimmpixeye/ecs.unity.git",
+    "com.pixeye.ecs": "https://github.com/dimmpixeye/ecs.git",
     "com.unity.package-manager-ui": "2.0.3",
     "com.unity.purchasing": "2.0.3",
     "com.unity.textmeshpro": "1.3.0",
@@ -37,7 +37,7 @@
   },
   "lock": {
     "com.pixeye.ecs": {
-      "hash": "77589061dac768e2b7e0e123be411f87073c3525",
+      "hash": "54087df840af72db6a10415aeb30b8f158767532",
       "revision": "HEAD"
     }
   }

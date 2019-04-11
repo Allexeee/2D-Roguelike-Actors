@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b965ab0786b794440beb6bba6a149c18, type: 3}
-  m_Name: DataGameSettings
+  m_Name: Data Game Settings
   m_EditorClassIdentifier: 
