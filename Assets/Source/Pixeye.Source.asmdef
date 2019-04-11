@@ -1,7 +1,8 @@
 {
     "name": "Pixeye.Source",
     "references": [
-        "Pixeye.Framework"
+        "Pixeye.Framework",
+        "Unity.TextMeshPro"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

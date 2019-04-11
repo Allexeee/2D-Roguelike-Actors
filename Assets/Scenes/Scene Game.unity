@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 622945359}
   m_Layer: 0
-  m_Name: '[SCENE]'
+  m_Name: -- SCENE --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 1499461061}
   - component: {fileID: 1499461062}
   m_Layer: 0
-  m_Name: '[SETUP]'
+  m_Name: -- SETUP --
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,9 +187,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   factories: []
   ScenesToKeep:
-  - m_SceneAsset: {fileID: 102900000, guid: b1c1e3eb1cede744db636d5f7c880773, type: 3}
-    m_SceneName: Scene Kernel
+  - sceneAsset: {fileID: 102900000, guid: b1c1e3eb1cede744db636d5f7c880773, type: 3}
+    sceneName: Scene Kernel
   SceneDependsOn:
-  - m_SceneAsset: {fileID: 102900000, guid: 76e00894e3dd1594096fdb57f0c5acbf, type: 3}
-    m_SceneName: Scene Camera
+  - sceneAsset: {fileID: 102900000, guid: b1c1e3eb1cede744db636d5f7c880773, type: 3}
+    sceneName: Scene Kernel
+  - sceneAsset: {fileID: 102900000, guid: ba81c98bb666b7d46afb064b34bff2de, type: 3}
+    sceneName: Scene Camera
   nodes: []
