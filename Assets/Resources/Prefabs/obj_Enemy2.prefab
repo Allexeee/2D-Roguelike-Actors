@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1641904431179379879, guid: c6475e2fb6dc45146a9b9b0cc2a9567a,
         type: 3}
       propertyPath: m_Name
-      value: obj_Enemy2 Variant
+      value: obj_Enemy2
       objectReference: {fileID: 0}
     - target: {fileID: 7734608485209099778, guid: c6475e2fb6dc45146a9b9b0cc2a9567a,
         type: 3}
@@ -67,6 +67,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8708826792075738577, guid: c6475e2fb6dc45146a9b9b0cc2a9567a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300024, guid: fbe1e7b94bb1a4a099d5bcb15a00141c,
+        type: 3}
     - target: {fileID: 2882683959706067713, guid: c6475e2fb6dc45146a9b9b0cc2a9567a,
         type: 3}
       propertyPath: m_Controller
