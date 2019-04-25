@@ -3,10 +3,10 @@ using UnityEngine;
 using Pixeye.Framework;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "FactoryBoard", menuName = "Factory/FactoryBoard")]
 ///<summary>
 /// Фабрика для создания доски (карты)
 ///</summary>
+[CreateAssetMenu(fileName = "FactoryBoard", menuName = "Factory/FactoryBoard")]
 public class FactoryBoard : Factory
 {
     [System.Serializable]

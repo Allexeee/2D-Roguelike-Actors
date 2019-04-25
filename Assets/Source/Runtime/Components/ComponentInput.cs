@@ -4,6 +4,9 @@ using UnityEngine;
 using Pixeye;
 using Pixeye.Framework;
 
+///<summary>
+///Компонент с "клавишами" ввода
+///</summary>
 [Serializable]
 public class ComponentInput : IComponent
 {

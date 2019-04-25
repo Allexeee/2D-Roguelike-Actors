@@ -4,6 +4,9 @@ using UnityEngine;
 using Pixeye;
 using Pixeye.Framework;
 
+///<summary>
+///Компонент с Rigidbody
+///</summary>
 [Serializable]
 public class ComponentRigid : IComponent
 {
