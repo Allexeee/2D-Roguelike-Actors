@@ -12,17 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb12bfa7486366498c4a15f31558596, type: 3}
   m_Name: FactoryBoard
   m_EditorClassIdentifier: 
-  columns: 8
-  rows: 8
+  columns: 10
+  rows: 10
   wallCount:
     minimum: 5
     maximum: 9
   foodCount:
     minimum: 1
     maximum: 5
-  exit: {fileID: 0}
-  floorTiles: []
-  wallTiles: []
-  foodTiles: []
-  enemyTiles: []
-  outerWallTiles: []
+  exit: {fileID: 7394936563563841807, guid: 697323e25dbad14409c3ca44830c33de, type: 3}
+  floorTiles:
+  - {fileID: 2039336714624581387, guid: 561ca983f45b92a4ea76f3a882983ffa, type: 3}
+  - {fileID: 367899412090354130, guid: 7c5daf8b437886244af97d67769a491b, type: 3}
+  wallTiles:
+  - {fileID: 5654728400877978616, guid: 815acf84d481e4d44a1bba92d307df59, type: 3}
+  - {fileID: 3513941287576782031, guid: c913afe1f3559124083d39ac616c1e33, type: 3}
+  foodTiles:
+  - {fileID: 462443083926767058, guid: f18d57915a4a0ad449bf13cfbf1b05a3, type: 3}
+  enemyTiles:
+  - {fileID: 1641904431179379879, guid: c6475e2fb6dc45146a9b9b0cc2a9567a, type: 3}
+  - {fileID: 4332769541381180702, guid: 8f112b55088e9754f90c18cec2ba7644, type: 3}
+  outerWallTiles:
+  - {fileID: 7798051254281439440, guid: 902f968e71c5fff429f94cbfa866ae8a, type: 3}
+  - {fileID: 2792522972886797177, guid: 8e6403e0f1c45cc429fdca686a4e7d90, type: 3}
+  - {fileID: 1477491681617330396, guid: 178b16ecf5ec7a042ba1336372a580c0, type: 3}
