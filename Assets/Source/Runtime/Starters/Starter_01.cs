@@ -3,11 +3,15 @@ using UnityEngine;
 using Pixeye;
 using Pixeye.Framework;
 
+///<summary>
+///Стартер уровня
+///</summary>
 public class Starter_01 : Starter
 {
     protected override void Setup()
     {
-        Add<ProcessorColliders>();
+        Add<ProcessorGame>();
+        Add<ProcessorPlayerInput>();
 
         FactoryBoard.Spawn();
     }
