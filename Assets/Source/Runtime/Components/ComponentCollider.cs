@@ -19,6 +19,7 @@ public class ComponentCollider : IComponent
 
     public void Dispose()
     {
+        source = null;
     }
 }
 

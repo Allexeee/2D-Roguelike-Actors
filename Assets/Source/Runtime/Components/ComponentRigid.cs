@@ -19,6 +19,7 @@ public class ComponentRigid : IComponent
 
     public void Dispose()
     {
+        source = null;
     }
 
 }
