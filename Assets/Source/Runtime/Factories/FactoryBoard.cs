@@ -3,10 +3,10 @@ using UnityEngine;
 using Pixeye.Framework;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "FactoryBoard", menuName = "Factory/FactoryBoard")]
 ///<summary>
 /// Фабрика для создания доски (карты)
 ///</summary>
+[CreateAssetMenu(fileName = "FactoryBoard", menuName = "Factory/FactoryBoard")]
 public class FactoryBoard : Factory
 {
     [System.Serializable]
@@ -62,7 +62,7 @@ public class FactoryBoard : Factory
         int enemyCount = (int)Mathf.Log(level, 2f);
 
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
-        Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount);
+        Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount, Models.ModelPhisic);
 
         var act = Actor.Create(Instance.exit, Models.ModelCollider);
         act.transform.position = new Vector3(Instance.columns - 1, Instance.rows - 1, 0f);

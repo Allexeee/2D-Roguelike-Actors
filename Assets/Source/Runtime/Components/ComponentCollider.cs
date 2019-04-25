@@ -4,6 +4,9 @@ using Pixeye;
 using Pixeye.Framework;
 using System;
 
+///<summary>
+///Компонент с коллайдером
+///</summary>
 [Serializable]
 public class ComponentCollider : IComponent
 {
