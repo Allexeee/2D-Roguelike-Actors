@@ -63,6 +63,9 @@ public class FactoryBoard : Factory
 
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
         Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount);
+
+        var act = Actor.Create(Instance.exit, Models.ModelCollider);
+        act.transform.position = new Vector3(Instance.columns - 1, Instance.rows - 1, 0f);
     }
 
     ///<summary>
@@ -138,8 +141,8 @@ public class FactoryBoard : Factory
 
             GameObject tileChoice = tileArray[Random.Range(0, tileArray.Length)];
 
-            if(model == null)
-            Instantiate(tileChoice, randomPosition, Quaternion.identity);
+            if (model == null)
+                Instantiate(tileChoice, randomPosition, Quaternion.identity);
             else
             {
                 var act = Actor.Create(tileChoice, model);

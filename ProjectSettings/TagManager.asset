@@ -51,3 +51,6 @@ TagManager:
   - name: Items
     uniqueID: 527761845
     locked: 0
+  - name: Entity
+    uniqueID: 4001359575
+    locked: 0

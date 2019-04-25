@@ -182,10 +182,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1499461060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe5b2aa71ed58b84f91b7cc95e1df48f, type: 3}
+  m_Script: {fileID: 11500000, guid: de4a78c25eeafbc4a89bc235880d324e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factories: []
+  factories:
+  - {fileID: 11400000, guid: 964bb3b51f9964747a46ab076aedfaf0, type: 2}
   ScenesToKeep:
   - sceneAsset: {fileID: 102900000, guid: b1c1e3eb1cede744db636d5f7c880773, type: 3}
     sceneName: Scene Kernel
