@@ -10,7 +10,7 @@ using System;
 [Serializable]
 public class ComponentCollider : IComponent
 {
-    public Collider source;
+    public Collider2D source;
 
     public void Copy(int entityID)
     {

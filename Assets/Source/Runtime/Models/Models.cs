@@ -27,15 +27,27 @@ public static partial class Models
     ///</summary>
     public static void ModelPlayer(EntityComposer composer)
     {
-        composer.Add<ComponentPlayer>();
         composer.Add<ComponentCollider>();
         composer.Add<ComponentRigid>();
 
+        var cPlayer = composer.Add<ComponentPlayer>();
+        cPlayer.wallDamage = 1;
         var cInput = composer.Add<ComponentInput>();
 
         cInput.InputMoveUp = KeyCode.UpArrow;
         cInput.InputMoveDown = KeyCode.DownArrow;
         cInput.InputMoveLeft = KeyCode.LeftArrow;
         cInput.InputMoveRight = KeyCode.RightArrow;
+    }
+
+    ///<summary>
+    ///Модель стены
+    ///</summary>
+    public static void ModelWall(EntityComposer composer)
+    {
+        composer.Add<ComponentDamage>();
+        composer.Add<ComponentCollider>();
+        var cWall = composer.Add<ComponentWall>();
+        // cWall.Health = 3;
     }
 }
