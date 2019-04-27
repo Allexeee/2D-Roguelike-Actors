@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb12bfa7486366498c4a15f31558596, type: 3}
   m_Name: FactoryBoard
   m_EditorClassIdentifier: 
-  columns: 10
-  rows: 10
+  columns: 8
+  rows: 8
   wallCount:
     minimum: 5
     maximum: 9
