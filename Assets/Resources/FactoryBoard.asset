@@ -20,6 +20,7 @@ MonoBehaviour:
   foodCount:
     minimum: 1
     maximum: 5
+  player: {fileID: 7145910887503683953, guid: e2ffb06ae7cc77944a529cc54e476423, type: 3}
   exit: {fileID: 7394936563563841807, guid: 697323e25dbad14409c3ca44830c33de, type: 3}
   floorTiles:
   - {fileID: 2039336714624581387, guid: 561ca983f45b92a4ea76f3a882983ffa, type: 3}
@@ -27,6 +28,12 @@ MonoBehaviour:
   wallTiles:
   - {fileID: 5654728400877978616, guid: 815acf84d481e4d44a1bba92d307df59, type: 3}
   - {fileID: 3513941287576782031, guid: c913afe1f3559124083d39ac616c1e33, type: 3}
+  - {fileID: 3513941287576782031, guid: 11adec38afe910a4c84c052a648a09f4, type: 3}
+  - {fileID: 3513941287576782031, guid: 194db1decb7867443aa0b6c716162e07, type: 3}
+  - {fileID: 3513941287576782031, guid: 759b6b69ae1725d49a3266456b38bc2d, type: 3}
+  - {fileID: 3513941287576782031, guid: fd9113c1d24c83c44b712b78b0483987, type: 3}
+  - {fileID: 3513941287576782031, guid: 4d108915202329e4693766ffd54d59e7, type: 3}
+  - {fileID: 3513941287576782031, guid: 7cead874958da644893c196027c99c77, type: 3}
   foodTiles:
   - {fileID: 462443083926767058, guid: f18d57915a4a0ad449bf13cfbf1b05a3, type: 3}
   enemyTiles:

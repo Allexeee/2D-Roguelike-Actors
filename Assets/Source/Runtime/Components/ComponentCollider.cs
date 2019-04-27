@@ -11,6 +11,8 @@ using System;
 public class ComponentCollider : IComponent
 {
     public Collider2D source;
+    // Действия при столкновении
+    public Interactables.CollisionBase[] Actions;
 
     public void Copy(int entityID)
     {

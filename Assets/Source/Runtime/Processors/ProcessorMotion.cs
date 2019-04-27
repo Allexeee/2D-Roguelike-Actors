@@ -7,12 +7,17 @@ using System.Collections.Generic;
 using System.Collections;
 using Time = Pixeye.Framework.Time;
 
+///<summary>
+/// Процессор движения
+///</summary>
+//FIXME Оптимизировать код
 public class ProcessorMotion : Processor
 {
     Group<ComponentMotion, ComponentRigid, ComponentCollider> groupMotions;
 
     private float inverseMoveTime = 1f / GameSession.Default.MoveTime;
     private LayerMask blockingLayer = GameSession.Default.blockingLayer;
+    private Collider2D lastCollider;
 
     private ent entity;
 
@@ -33,25 +38,40 @@ public class ProcessorMotion : Processor
         entity.Remove<ComponentMotion>();
     }
 
-    //Move returns true if it is able to move and false if not. 
-    //Move takes parameters for x direction, y direction and a RaycastHit2D to check collision.
+    // Проверяет на присутвие припятствия на пути и двигает объект
     protected bool Move(int xDir, int yDir, out RaycastHit2D hit)
     {
+        bool obstacle = true;
+
         var cCollider = entity.ComponentCollider();
 
         Vector2 start = entity.transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
 
+        // Отключаем коллайдеры перед поиском новых
         cCollider.source.enabled = false;
+        if (lastCollider != null) lastCollider.enabled = false;
+
         hit = Physics2D.Linecast(start, end, blockingLayer);
+
         cCollider.source.enabled = true;
-        if (hit.transform == null)
+        if (lastCollider != null) lastCollider.enabled = true;
+
+        var col = hit.collider;
+
+        if (col != null && col.isTrigger == true)
+            lastCollider = col;
+        if (col == null)
+        {
+            lastCollider = null;
+            obstacle = false;
+        }
+        if (col == null || col.isTrigger == true)
         {
             Toolbox.Instance.StartCoroutine(SmoothMovement(entity, end));
-            return true;
         }
 
-        return false;
+        return obstacle;
     }
 
     //"Плавное" движение
@@ -73,27 +93,25 @@ public class ProcessorMotion : Processor
     {
         RaycastHit2D hit;
 
-        bool canMove = Move(xDir, yDir, out hit);
+        bool obstacle = Move(xDir, yDir, out hit);
+        // this.print(obstacle);
+        // if (hit.transform != null)
 
-        // if (hit.transform == null)
-        // return;
+        if (hit.transform == null)
+            return;
+            this.print(hit.collider + " " + hit.collider.isTrigger);
 
         //Get a component reference to the component of type T attached to the object that was hit
-        // Actor actor = hit.transform.GetComponent<Actor>();
 
         //If canMove is false and hitComponent is not equal to null, meaning MovingObject is blocked and has hit something it can interact with.
-        if (!canMove)
+        if (obstacle)
         {
-            var cCollision = entity.Add<ComponentCollision>();
-            cCollision.targetEntity = hit.collider.GetComponentInParent<Actor>().GetEntity();
-            // cCollision.targetEntity.Add<ComponentWall>();
-            cCollision.targetCollider = hit.collider;
-
-            this.print("Столкновение. Цель: " + cCollision.targetEntity.id + " " + hit.transform.parent.name);
-            this.print(hit.collider.GetComponentInParent<Actor>().GetEntity().ComponentWall() + " ЭЭЭ"); //null
-
-            // cCollision.targetEntity = hit.collider.Entity();
-            // this.print("Столкновение. Источник: " + entity.id);
+            var entityTarget = hit.transform.GetComponentInParent<Actor>().entity;
+            var cCollider = entity.ComponentCollider();
+            foreach (var action in cCollider.Actions)
+            {
+                action.Interact(entity, entityTarget, hit.collider.isTrigger);
+            }
         }
 
         //Call the OnCantMove function and pass it hitComponent as a parameter.

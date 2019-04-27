@@ -11,5 +11,6 @@ namespace Pixeye
 		[TagField]
 		public const int None = 0;
 
+		[TagField] public const int Wall = 1;
 	}
 }

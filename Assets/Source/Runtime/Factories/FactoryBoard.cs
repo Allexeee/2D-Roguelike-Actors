@@ -29,6 +29,7 @@ public class FactoryBoard : Factory
     public Count wallCount = new Count(5, 9);
     public Count foodCount = new Count(1, 5);
 
+    public GameObject player;
     public GameObject exit;                                         //Prefab to spawn for exit.
     public GameObject[] floorTiles;                                 //Array of floor prefabs.
     public GameObject[] wallTiles;                                  //Array of wall prefabs.
@@ -56,16 +57,19 @@ public class FactoryBoard : Factory
         Instance.LayoutObjectAtRandom(Instance.wallTiles, Instance.wallCount.minimum, Instance.wallCount.maximum, Models.ModelWall);
 
         //Instantiate a random number of food tiles based on minimum and maximum, at randomized positions.
-        Instance.LayoutObjectAtRandom(Instance.foodTiles, Instance.foodCount.minimum, Instance.foodCount.maximum);
+        Instance.LayoutObjectAtRandom(Instance.foodTiles, Instance.foodCount.minimum, Instance.foodCount.maximum, Models.ModelCollider);
 
         //Determine number of enemies based on current level number, based on a logarithmic progression
         int enemyCount = (int)Mathf.Log(level, 2f);
 
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
-        Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount, Models.ModelPlayer);
+        Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount, Models.ModelPhisic);
 
         var act = Actor.Create(Instance.exit, Models.ModelCollider);
         act.transform.position = new Vector3(Instance.columns - 1, Instance.rows - 1, 0f);
+
+        var player = Actor.Create(Instance.player, Models.ModelPlayer);
+        player.transform.position = new Vector3(0, 0, 0f);
     }
 
     ///<summary>
@@ -99,7 +103,7 @@ public class FactoryBoard : Factory
             {
                 if (x == -1 || x == columns || y == -1 || y == rows)
                 {
-                    var actor = Actor.Create(outerWallTiles[Random.Range(0, outerWallTiles.Length)], Models.ModelCollider);
+                    var actor = Actor.Create(outerWallTiles[Random.Range(0, outerWallTiles.Length)]);
                     actor.transform.position = new Vector3(x, y, 0f);
                     actor.transform.SetParent(boardHolder);
                 }

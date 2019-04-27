@@ -27,9 +27,11 @@ public static partial class Models
     ///</summary>
     public static void ModelPlayer(EntityComposer composer)
     {
-        composer.Add<ComponentCollider>();
         composer.Add<ComponentRigid>();
 
+        var cCollider = composer.Add<ComponentCollider>();
+        cCollider.Actions = new Interactables.CollisionBase[1];
+        cCollider.Actions[0] = Scriptables.DamageWall;
         var cPlayer = composer.Add<ComponentPlayer>();
         cPlayer.wallDamage = 1;
         var cInput = composer.Add<ComponentInput>();
@@ -45,9 +47,11 @@ public static partial class Models
     ///</summary>
     public static void ModelWall(EntityComposer composer)
     {
-        composer.Add<ComponentDamage>();
         composer.Add<ComponentCollider>();
-        var cWall = composer.Add<ComponentWall>();
-        // cWall.Health = 3;
+        var cHealth = composer.Add<ComponentHealth>();
+        cHealth.Health = 4;
+        cHealth.ActionHealthChanged = Scriptables.DestructionWalls;
+
+        composer.Add(Tag.Wall);
     }
 }
