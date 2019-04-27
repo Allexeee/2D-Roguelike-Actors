@@ -5,12 +5,12 @@ using Pixeye;
 using Pixeye.Framework;
 
 ///<summary>
-///Компонент игрока
+///Компонент игрока. Пока что пустышка
 ///</summary>
 [Serializable]
 public class ComponentPlayer : IComponent
 {
-    public int wallDamage;
+    
 
     public void Copy(int entityID)
     {

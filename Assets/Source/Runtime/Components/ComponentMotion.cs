@@ -10,7 +10,7 @@ using Pixeye.Framework;
 [Serializable]
 public class ComponentMotion : IComponent
 {
-    public Vector2Int target;
+    public Vector2 target;
 
     public void Copy(int entityID)
     {

@@ -9,9 +9,5 @@ namespace Pixeye.Framework
 	public class GameSession : DataSession, IKernel
     {
         public static GameSession Default => Toolbox.Get<GameSession>();
-
-        public float MoveTime = 0.1f; // Время движения объекта в секундах
-        public LayerMask blockingLayer; // Слой, на котором проверяются коллизии
-        
     }
 }

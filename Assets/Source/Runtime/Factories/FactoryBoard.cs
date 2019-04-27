@@ -53,7 +53,7 @@ public class FactoryBoard : Factory
         Instance.InitialiseList();
 
         //Instantiate a random number of wall tiles based on minimum and maximum, at randomized positions.
-        Instance.LayoutObjectAtRandom(Instance.wallTiles, Instance.wallCount.minimum, Instance.wallCount.maximum, Models.ModelWall);
+        Instance.LayoutObjectAtRandom(Instance.wallTiles, Instance.wallCount.minimum, Instance.wallCount.maximum, Models.ModelCollider);
 
         //Instantiate a random number of food tiles based on minimum and maximum, at randomized positions.
         Instance.LayoutObjectAtRandom(Instance.foodTiles, Instance.foodCount.minimum, Instance.foodCount.maximum);
@@ -62,7 +62,7 @@ public class FactoryBoard : Factory
         int enemyCount = (int)Mathf.Log(level, 2f);
 
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
-        Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount, Models.ModelPlayer);
+        Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount, Models.ModelPhisic);
 
         var act = Actor.Create(Instance.exit, Models.ModelCollider);
         act.transform.position = new Vector3(Instance.columns - 1, Instance.rows - 1, 0f);

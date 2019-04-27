@@ -28,10 +28,10 @@ public class ProcessorPlayerInput : Processor, ITick
             if (moveDown || moveLeft || moveRight || moveUp)
             {
                 var cMotion = entity.Add<ComponentMotion>();
-                if(moveLeft) cMotion.target = new Vector2Int(-1,0);
-                else if(moveDown) cMotion.target = new Vector2Int(0,-1);
-                else if(moveRight) cMotion.target = new Vector2Int(1,0);
-                else if(moveUp) cMotion.target = new Vector2Int(0,1);
+                if(moveLeft) cMotion.target = new Vector2(-1,0);
+                else if(moveDown) cMotion.target = new Vector2(0,-1);
+                else if(moveRight) cMotion.target = new Vector2(1,0);
+                else if(moveUp) cMotion.target = new Vector2(0,1);
                 // this.print(cMotion.target);
             }
         }

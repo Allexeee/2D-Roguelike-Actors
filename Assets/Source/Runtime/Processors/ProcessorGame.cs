@@ -20,7 +20,7 @@ public class ProcessorGame : Processor
 
     void AwakeInGroupOfColliders(in ent entity)
     {
-        entity.ComponentCollider().source = entity.Get<Collider2D>("collider");
+        entity.ComponentCollider().source = entity.Get<Collider>();
     }
 
     void AwakeInGroupOfRigids(in ent entity)
