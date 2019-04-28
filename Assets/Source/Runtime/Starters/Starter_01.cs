@@ -2,6 +2,7 @@
 using UnityEngine;
 using Pixeye;
 using Pixeye.Framework;
+using Time = Pixeye.Framework.Time;
 
 ///<summary>
 ///Стартер уровня
@@ -12,7 +13,11 @@ public class Starter_01 : Starter
     {
         Add<ProcessorGame>();
         Add<ProcessorPlayerInput>();
+        Add<ProcessorMotion>();
+    }
 
+    protected override void PostSetup()
+    {
         FactoryBoard.Spawn();
     }
 }

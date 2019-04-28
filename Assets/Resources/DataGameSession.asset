@@ -12,3 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6a0d141f815b504887cbc7780bb4cb8, type: 3}
   m_Name: DataGameSession
   m_EditorClassIdentifier: 
+  MoveTime: 0.1
+  blockingLayer:
+    serializedVersion: 2
+    m_Bits: 768

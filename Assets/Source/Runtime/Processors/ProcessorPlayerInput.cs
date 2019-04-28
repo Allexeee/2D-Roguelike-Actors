@@ -9,16 +9,13 @@ using Pixeye.Framework;
 ///</summary>
 public class ProcessorPlayerInput : Processor, ITick
 {
-    public Group<ComponentPlayer, ComponentInput, ComponentRigid> groupOfPlayers;
+    public Group<ComponentInput> groupOfPlayers;
 
     public void Tick()
     {
         foreach (var entity in groupOfPlayers)
         {
             var cInput = entity.ComponentInput();
-            var cRigid = entity.ComponentRigid();
-
-            var velocity = cRigid.source.velocity;
 
             var moveLeft = Input.GetKeyDown(cInput.InputMoveLeft);
             var moveRight = Input.GetKeyDown(cInput.InputMoveRight);
@@ -28,11 +25,10 @@ public class ProcessorPlayerInput : Processor, ITick
             if (moveDown || moveLeft || moveRight || moveUp)
             {
                 var cMotion = entity.Add<ComponentMotion>();
-                if(moveLeft) cMotion.target = new Vector2(-1,0);
-                else if(moveDown) cMotion.target = new Vector2(0,-1);
-                else if(moveRight) cMotion.target = new Vector2(1,0);
-                else if(moveUp) cMotion.target = new Vector2(0,1);
-                // this.print(cMotion.target);
+                if(moveLeft) cMotion.target = new Vector2Int(-1,0);
+                else if(moveDown) cMotion.target = new Vector2Int(0,-1);
+                else if(moveRight) cMotion.target = new Vector2Int(1,0);
+                else if(moveUp) cMotion.target = new Vector2Int(0,1);
             }
         }
     }
