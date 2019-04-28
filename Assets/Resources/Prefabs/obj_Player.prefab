@@ -13,7 +13,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: ed88edb0ae145440684f0bf998629c0c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -239,6 +239,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7360466170735209551, guid: fc81c6b2eeb01ee4b985f63d4a70acc8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fbe1e7b94bb1a4a099d5bcb15a00141c,
+        type: 3}
+    - target: {fileID: 7360466170735209551, guid: fc81c6b2eeb01ee4b985f63d4a70acc8,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc81c6b2eeb01ee4b985f63d4a70acc8, type: 3}

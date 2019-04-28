@@ -9,13 +9,15 @@ using Pixeye.Framework;
 ///</summary>
 public class ProcessorGame : Processor
 {
-    Group<ComponentCollider> groupColliders;
+    Group<ComponentCollider> groupOfColliders;
     Group<ComponentRigid> groupOfRigids;
+    Group<ComponentAnim> groupOfAnim;
 
     public ProcessorGame()
     {
-        groupColliders.onAdd += AwakeInGroupOfColliders;
+        groupOfColliders.onAdd += AwakeInGroupOfColliders;
         groupOfRigids.onAdd += AwakeInGroupOfRigids;
+        groupOfAnim.onAdd += AwakeInGroupOfAnim;
     }
 
     void AwakeInGroupOfColliders(in ent entity)
@@ -28,4 +30,9 @@ public class ProcessorGame : Processor
         entity.ComponentRigid().source = entity.Get<Rigidbody2D>();
     }
 
+    void AwakeInGroupOfAnim(in ent entity)
+    {
+			var animator = entity.Get<Animator>("view");
+			animator.runtimeAnimatorController = entity.ComponentAnim().source;
+    }
 }

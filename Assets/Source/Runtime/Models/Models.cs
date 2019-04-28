@@ -31,15 +31,20 @@ public static partial class Models
 
         var cCollider = composer.Add<ComponentCollider>();
         cCollider.Actions = new Interactables.CollisionBase[1];
-        cCollider.Actions[0] = Scriptables.DamageWall;
-        var cPlayer = composer.Add<ComponentPlayer>();
-        cPlayer.wallDamage = 1;
-        var cInput = composer.Add<ComponentInput>();
+        cCollider.Actions[0] = Scriptables.Damage;
 
+        var cPlayer = composer.Add<ComponentDamageWall>();
+        cPlayer.wallDamage = 1;
+
+        var cInput = composer.Add<ComponentInput>();
         cInput.InputMoveUp = KeyCode.UpArrow;
         cInput.InputMoveDown = KeyCode.DownArrow;
         cInput.InputMoveLeft = KeyCode.LeftArrow;
         cInput.InputMoveRight = KeyCode.RightArrow;
+
+        var cAnim = composer.Add<ComponentAnim>();
+        cAnim.source = Box.Get<RuntimeAnimatorController>("Animation/Controllers/Animator Player");
+        cAnim.current = Anim.PlayerIdle;
     }
 
     ///<summary>
@@ -50,7 +55,7 @@ public static partial class Models
         composer.Add<ComponentCollider>();
         var cHealth = composer.Add<ComponentHealth>();
         cHealth.Health = 4;
-        cHealth.ActionHealthChanged = Scriptables.DestructionWalls;
+        cHealth.ActionHealthChanged = Scriptables.WallsCollapsing;
 
         composer.Add(Tag.Wall);
     }

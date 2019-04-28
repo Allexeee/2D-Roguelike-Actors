@@ -4,6 +4,12 @@ using UnityEngine;
 using Pixeye;
 using Pixeye.Framework;
 
+///<summary>
+/// Взаимодействия с миром.
+/// eSource - источник действия
+/// eTarget - цель, к которой применяется действие
+///</summary>
+
 public class Interactables
 {
     public abstract class GeneralBase
@@ -18,23 +24,18 @@ public class Interactables
 
     public class Collision
     {
-        public class DamageWall : CollisionBase
+        ///<summary>
+        /// Нанесение урона стене
+        ///</summary>
+        public class Damage : CollisionBase
         {
             public override void Interact(in ent eSource, in ent eTarget, bool isTrigger = false)
             {
-                var cDamageWall = eSource.ComponentPlayer();
                 ComponentHealth cHealth;
                 // Если цель имеет здоровье
                 if (eTarget.Get(out cHealth))
                 {
-                    // Если это стена. По идее, в игре здоровье есть только у стен, поэтому эту проверку можно опустить,
-                    // но если мы добавим что-то еще со здоровьем, то это вызовет ошибку
-                    if (eTarget.Has(Tag.Wall))
-                    {
-                        this.print("DamageWall");
-                        cHealth.Health -= cDamageWall.wallDamage;
-                        cHealth.ActionHealthChanged.Interact(eSource, eTarget);
-                    }
+                    cHealth.ActionHealthChanged.Interact(eSource, eTarget);
                 }
             }
         }
@@ -42,12 +43,25 @@ public class Interactables
 
     public class General
     {
-        public class DestructionWalls : GeneralBase
+        ///<summary>
+        /// Разрушение стены (уменьшение хп + уничтожение стены)
+        ///</summary>
+        public class WallsCollapsing : GeneralBase
         {
             public override void Interact(in ent eSource, in ent eTarget)
             {
+                // Необходимо узнать, может ли источник нанести урон стене
+                int dmg = 0;
+                ComponentDamageWall cDamageWall;
+                if (!eSource.Get(out cDamageWall)) 
+                    return;
+
+                dmg = cDamageWall.wallDamage;
                 ref var hp = ref eTarget.ComponentHealth().Health;
+                hp -= dmg;
+
                 this.print($"Здоровье изменилось. Стало: {hp}");
+
                 if (hp <= 0)
                 {
                     eTarget.Release();
@@ -59,7 +73,7 @@ public class Interactables
 
 public static class Scriptables
 {
-    public static Interactables.Collision.DamageWall DamageWall = new Interactables.Collision.DamageWall();
+    public static Interactables.Collision.Damage Damage = new Interactables.Collision.Damage();
 
-    public static Interactables.General.DestructionWalls DestructionWalls = new Interactables.General.DestructionWalls();
+    public static Interactables.General.WallsCollapsing WallsCollapsing = new Interactables.General.WallsCollapsing();
 }

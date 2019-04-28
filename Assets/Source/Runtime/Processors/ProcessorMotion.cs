@@ -8,7 +8,7 @@ using System.Collections;
 using Time = Pixeye.Framework.Time;
 
 ///<summary>
-/// Процессор движения
+/// Процессор движения. При столкновении (взаимодействии с миром) вызывает обработчики в ComponentCollider
 ///</summary>
 //FIXME Оптимизировать код
 public class ProcessorMotion : Processor
@@ -94,19 +94,15 @@ public class ProcessorMotion : Processor
         RaycastHit2D hit;
 
         bool obstacle = Move(xDir, yDir, out hit);
-        // this.print(obstacle);
-        // if (hit.transform != null)
 
         if (hit.transform == null)
             return;
-            this.print(hit.collider + " " + hit.collider.isTrigger);
 
-        //Get a component reference to the component of type T attached to the object that was hit
-
-        //If canMove is false and hitComponent is not equal to null, meaning MovingObject is blocked and has hit something it can interact with.
+        // Если в точке, куда идет игрок, есть коллайде или триггер, вызываем у игрока
+        // ВСЕ действия, которые записаны в компоненте
         if (obstacle)
         {
-            var entityTarget = hit.transform.GetComponentInParent<Actor>().entity;
+            ref var entityTarget = ref hit.GetEntityInParent();
             var cCollider = entity.ComponentCollider();
             foreach (var action in cCollider.Actions)
             {
@@ -114,14 +110,5 @@ public class ProcessorMotion : Processor
             }
         }
 
-        //Call the OnCantMove function and pass it hitComponent as a parameter.
-        // OnCantMove(actor.entity);
     }
-    //The abstract modifier indicates that the thing being modified has a missing or incomplete implementation.
-    //OnCantMove will be overriden by functions in the inheriting classes.
-    protected void OnCantMove(ent enity)
-    {
-        //enity.Ge
-    }
-
 }

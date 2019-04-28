@@ -11,7 +11,7 @@ using System;
 public class ComponentCollider : IComponent
 {
     public Collider2D source;
-    // Действия при столкновении
+    // Действия при столкновении. Каждое действие должно проверять сущности.
     public Interactables.CollisionBase[] Actions;
 
     public void Copy(int entityID)

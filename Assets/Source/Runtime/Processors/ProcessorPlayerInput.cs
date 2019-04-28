@@ -9,7 +9,7 @@ using Pixeye.Framework;
 ///</summary>
 public class ProcessorPlayerInput : Processor, ITick
 {
-    public Group<ComponentPlayer, ComponentInput, ComponentRigid> groupOfPlayers;
+    public Group<ComponentDamageWall, ComponentInput, ComponentRigid> groupOfPlayers;
 
     public void Tick()
     {
@@ -32,7 +32,6 @@ public class ProcessorPlayerInput : Processor, ITick
                 else if(moveDown) cMotion.target = new Vector2Int(0,-1);
                 else if(moveRight) cMotion.target = new Vector2Int(1,0);
                 else if(moveUp) cMotion.target = new Vector2Int(0,1);
-                // this.print(cMotion.target);
             }
         }
     }
