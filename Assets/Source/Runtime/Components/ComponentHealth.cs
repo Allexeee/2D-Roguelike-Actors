@@ -4,12 +4,14 @@ using UnityEngine;
 using Pixeye;
 using Pixeye.Framework;
 
+///<summary>
+/// Компонент здоровья
+///</summary>
 [Serializable]
 public class ComponentHealth : IComponent
 {
     public int Health;
-    public Interactables.GeneralBase ActionHealthChanged;
-    
+    public Interactables.GeneralBase ActionHealthChanged;    
 
     public void Copy(int entityID)
     {

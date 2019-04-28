@@ -9,16 +9,13 @@ using Pixeye.Framework;
 ///</summary>
 public class ProcessorPlayerInput : Processor, ITick
 {
-    public Group<ComponentDamageWall, ComponentInput, ComponentRigid> groupOfPlayers;
+    public Group<ComponentInput> groupOfPlayers;
 
     public void Tick()
     {
         foreach (var entity in groupOfPlayers)
         {
             var cInput = entity.ComponentInput();
-            var cRigid = entity.ComponentRigid();
-
-            var velocity = cRigid.source.velocity;
 
             var moveLeft = Input.GetKeyDown(cInput.InputMoveLeft);
             var moveRight = Input.GetKeyDown(cInput.InputMoveRight);
