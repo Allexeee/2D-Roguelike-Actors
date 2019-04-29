@@ -24,6 +24,7 @@ public class ProcessorTurn : Processor, IReceive<SignalEndMotion>
 
     public void HandleSignal(in SignalEndMotion arg)
     {
+        // Группа с "ходящими" сущностями создается лишь один раз (по правилам игры), поэтому сортируем лишь один раз
         if (!sorted)
         {
             sorted = true;
@@ -42,7 +43,7 @@ public class ProcessorTurn : Processor, IReceive<SignalEndMotion>
 
         if (++currentTurn >= listTurn.Count)
             currentTurn = 0;
-        this.print("Ход у " + listTurn[currentTurn].id);
+        // this.print("Ход у " + listTurn[currentTurn].id);
         listTurn[currentTurn].Add(Tag.CanMotion);
     }
 
