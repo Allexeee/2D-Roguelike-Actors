@@ -63,13 +63,17 @@ public class FactoryBoard : Factory
         int enemyCount = (int)Mathf.Log(level, 2f);
 
         //Instantiate a random number of enemies based on minimum and maximum, at randomized positions.
-        Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount, Models.ModelPhisic);
+        Instance.LayoutObjectAtRandom(Instance.enemyTiles, enemyCount, enemyCount, Models.ModelEnemy);
 
         var act = Actor.Create(Instance.exit, Models.ModelCollider);
         act.transform.position = new Vector3(Instance.columns - 1, Instance.rows - 1, 0f);
 
         var player = Actor.Create(Instance.player, Models.ModelPlayer);
         player.transform.position = new Vector3(0, 0, 0f);
+
+        // var player1 = Actor.Create(Instance.player, Models.ModelPlayer);
+        // player1.transform.position = new Vector3(3, 0, 0f);
+
     }
 
     ///<summary>
@@ -103,9 +107,9 @@ public class FactoryBoard : Factory
             {
                 if (x == -1 || x == columns || y == -1 || y == rows)
                 {
-                    var actor = Actor.Create(outerWallTiles[Random.Range(0, outerWallTiles.Length)]);
-                    actor.transform.position = new Vector3(x, y, 0f);
-                    actor.transform.SetParent(boardHolder);
+                    var go = Instantiate(outerWallTiles[Random.Range(0, outerWallTiles.Length)]);
+                    go.transform.position = new Vector3(x, y, 0f);
+                    go.transform.SetParent(boardHolder);
                 }
                 else
                 {

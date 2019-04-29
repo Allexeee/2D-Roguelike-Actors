@@ -12,5 +12,8 @@ namespace Pixeye
 		public const int None = 0;
 
 		[TagField] public const int Wall = 1;
+		[TagField] public const int Player = 2;
+		[TagField] public const int Enemy = 3;
+		[TagField] public const int CanMotion = 4;
 	}
 }

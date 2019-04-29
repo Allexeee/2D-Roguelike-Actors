@@ -14,10 +14,14 @@ public class Starter_01 : Starter
         Add<ProcessorGame>();
         Add<ProcessorPlayerInput>();
         Add<ProcessorMotion>();
+        Add<ProcessorTurn>();
     }
 
     protected override void PostSetup()
     {
         FactoryBoard.Spawn();
+        var arg = new SignalEndMotion { entity = -1 };
+        Timer.Add(Time.delta, () => ProcessorSignals.Send(arg));
+
     }
 }
