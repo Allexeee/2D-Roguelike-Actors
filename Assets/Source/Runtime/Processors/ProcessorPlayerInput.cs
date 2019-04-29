@@ -9,6 +9,7 @@ using Pixeye.Framework;
 ///</summary>
 public class ProcessorPlayerInput : Processor, ITick
 {
+    [GroupBy(Tag.CanMotion)]
     public Group<ComponentInput> groupOfPlayers;
 
     public void Tick()

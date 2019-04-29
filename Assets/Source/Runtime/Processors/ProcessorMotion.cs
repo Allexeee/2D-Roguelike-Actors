@@ -10,68 +10,83 @@ using Time = Pixeye.Framework.Time;
 ///<summary>
 /// Процессор движения. При столкновении (взаимодействии с миром) вызывает обработчики в ComponentCollider
 ///</summary>
-//FIXME Оптимизировать код
-public class ProcessorMotion : Processor
+public class ProcessorMotion : Processor, ITick
 {
+    [GroupBy(Tag.CanMotion)]
     Group<ComponentMotion, ComponentRigid, ComponentCollider> groupMotions;
 
     private float inverseMoveTime = 1f / GameSession.Default.MoveTime;
     private LayerMask blockingLayer = GameSession.Default.blockingLayer;
-    private Collider2D lastCollider;
+    // Для каждой сущности хранит объект, который нужно проигнорировать при следующем поиске припятствия
+    private Dictionary<ent, Collider2D> lastColliders = new Dictionary<ent, Collider2D>();
 
-    private ent entity;
-
+    bool moving;
     public ProcessorMotion()
     {
         groupMotions.onAdd += AwakeInGroupOfMotions;
     }
 
-    void AwakeInGroupOfMotions(in ent entity)
+    public void Tick()
     {
+        if (groupMotions.length <= 0) return;
+        if (moving) return;
+        moving = true;
+
+        var entity = groupMotions[0];
         var cMotion = entity.ComponentMotion();
 
-        this.entity = entity;
-
-        AttemptMove(cMotion.target.x, cMotion.target.y);
-
-        // Убираем компонент, чтобы сущность попала сюда в след. раз при добавлении компонента
-        entity.Remove<ComponentMotion>();
-    }
-
-    // Проверяет на присутвие припятствия на пути и двигает объект
-    protected bool Move(int xDir, int yDir, out RaycastHit2D hit)
-    {
-        bool obstacle = true;
-
-        var cCollider = entity.ComponentCollider();
-
         Vector2 start = entity.transform.position;
-        Vector2 end = start + new Vector2(xDir, yDir);
+        Vector2 end = start + new Vector2(cMotion.target.x, cMotion.target.y);
 
-        // Отключаем коллайдеры перед поиском новых
-        cCollider.source.enabled = false;
-        if (lastCollider != null) lastCollider.enabled = false;
-
-        hit = Physics2D.Linecast(start, end, blockingLayer);
-
-        cCollider.source.enabled = true;
-        if (lastCollider != null) lastCollider.enabled = true;
-
-        var col = hit.collider;
-
-        if (col != null && col.isTrigger == true)
-            lastCollider = col;
-        if (col == null)
-        {
-            lastCollider = null;
-            obstacle = false;
-        }
-        if (col == null || col.isTrigger == true)
+        var checkHit = CheckObstacle(entity, start, end);
+        // Если припятствие - коллайдер с триггером или нет припятствия, то двигаемся
+        if (!checkHit.IsCollider || checkHit.IsTrigger)
         {
             Toolbox.Instance.StartCoroutine(SmoothMovement(entity, end));
         }
+        // Припятствие с актором
+        else if (checkHit.IsActor)
+        {
+            var cCollider = entity.ComponentCollider();
+            // this.print("checkHit " + checkHit.IsCollider + " Tr: " + checkHit.IsTrigger + " Ac: " + checkHit.IsActor + " En: " + checkHit.Entity.id);
+            foreach (var action in cCollider.Actions)
+            {
+                action.Interact(entity, checkHit.Entity, checkHit.IsTrigger);
+            }
+            moving = false;
+        }
+        if (checkHit.IsCollider && !checkHit.IsActor && !checkHit.IsTrigger) moving = false;
+        ProcessorSignals.Send(new SignalEndMotion { entity = entity });
+        entity.Remove<ComponentMotion>();
+    }
 
-        return obstacle;
+    void AwakeInGroupOfMotions(in ent entity)
+    {
+        if (!lastColliders.ContainsKey(entity)) lastColliders.Add(entity, null);
+    }
+
+    ///<summary>
+    /// Проверяет на наличие припятствия к точке движения
+    ///<param name="eObstacle">Триггер</param>
+    ///<param name="return">entity припятствия</param>
+    ///</summary>
+    private PhysCheckHit CheckObstacle(ent entity, Vector2 start, Vector2 end)
+    {
+        var cCollider = entity.ComponentCollider();
+
+        // Отключаем коллайдеры перед проверкой припятствия
+        cCollider.source.enabled = false;
+        if (lastColliders[entity] != null) lastColliders[entity].enabled = false;
+
+        RaycastHit2D hit = Physics2D.Linecast(start, end, blockingLayer);
+
+        // Включаем коллайдеры после проверки припятствия
+        cCollider.source.enabled = true;
+        if (lastColliders[entity] != null) lastColliders[entity].enabled = true;
+
+        var ch = hit.CheckHit();
+        if (ch.IsTrigger) lastColliders[entity] = ch.Collider2D;
+        return ch;
     }
 
     //"Плавное" движение
@@ -87,28 +102,6 @@ public class ProcessorMotion : Processor
             sqrRemainingDistance = (entity.transform.position - end).sqrMagnitude;
             yield return null;
         }
-    }
-
-    void AttemptMove(int xDir, int yDir)
-    {
-        RaycastHit2D hit;
-
-        bool obstacle = Move(xDir, yDir, out hit);
-
-        if (hit.transform == null)
-            return;
-
-        // Если в точке, куда идет игрок, есть коллайдер или триггер, вызываем у игрока
-        // ВСЕ действия, которые записаны в компоненте
-        if (obstacle)
-        {
-            ref var entityTarget = ref hit.GetEntityInParent();
-            var cCollider = entity.ComponentCollider();
-            foreach (var action in cCollider.Actions)
-            {
-                action.Interact(entity, entityTarget, hit.collider.isTrigger);
-            }
-        }
-
+        moving = false;
     }
 }

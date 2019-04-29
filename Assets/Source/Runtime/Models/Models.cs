@@ -14,12 +14,14 @@ public static partial class Models
     }
 
     ///<summary>
-    ///Модель с физикой - колайдер + рижидбоди
+    ///Модель врага
     ///</summary>
-    public static void ModelPhisic(EntityComposer composer)
+    public static void ModelEnemy(EntityComposer composer)
     {
         composer.Add<ComponentCollider>();
         composer.Add<ComponentRigid>();
+        
+        composer.Add(Tag.Enemy);
     }
 
     ///<summary>
@@ -45,6 +47,8 @@ public static partial class Models
         var cAnim = composer.Add<ComponentAnim>();
         cAnim.source = Box.Get<RuntimeAnimatorController>("Animation/Controllers/Animator Player");
         cAnim.current = Anim.PlayerIdle;
+
+        composer.Add(Tag.Player);
     }
 
     ///<summary>
