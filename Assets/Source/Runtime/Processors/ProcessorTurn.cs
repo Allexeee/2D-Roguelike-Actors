@@ -39,17 +39,19 @@ public class ProcessorTurn : Processor, IReceive<SignalEndMotion>
         var entity = arg.entity;
         // Т.к. первый вызов идет из стартера без указания сущности, то проверяем
         if (entity != -1)
+        {
             entity.Remove(Tag.CanMotion);
-
+            // this.print($"RemoveTag CanMotion ({entity.id})");
+        }
         if (++currentTurn >= listTurn.Count)
             currentTurn = 0;
-        // this.print("Ход у " + listTurn[currentTurn].id);
+        this.print("Ход " + listTurn[currentTurn].id);
         listTurn[currentTurn].Add(Tag.CanMotion);
     }
 
     void AwakeInGroupOfCanMotions(in ent entity)
     {
-        if (entity.HasAny(Tag.Player/*,Tag.Enemy */))
+        if (entity.HasAny(Tag.Player, Tag.Enemy))
         {
             listTurn.Add(entity);
         }

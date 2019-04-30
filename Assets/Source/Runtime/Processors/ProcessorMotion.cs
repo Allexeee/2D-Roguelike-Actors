@@ -49,10 +49,11 @@ public class ProcessorMotion : Processor, ITick
         {
             var cCollider = entity.ComponentCollider();
             // this.print("checkHit " + checkHit.IsCollider + " Tr: " + checkHit.IsTrigger + " Ac: " + checkHit.IsActor + " En: " + checkHit.Entity.id);
-            foreach (var action in cCollider.Actions)
-            {
-                action.Interact(entity, checkHit.Entity, checkHit.IsTrigger);
-            }
+            if (cCollider != null && cCollider.Actions != null)
+                foreach (var action in cCollider.Actions)
+                {
+                    action.Interact(entity, checkHit.Entity, checkHit.IsTrigger);
+                }
             moving = false;
         }
         if (checkHit.IsCollider && !checkHit.IsActor && !checkHit.IsTrigger) moving = false;
