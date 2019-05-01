@@ -45,7 +45,7 @@ public class ProcessorTurn : Processor, IReceive<SignalEndMotion>
         }
         if (++currentTurn >= listTurn.Count)
             currentTurn = 0;
-        this.print("Ход " + listTurn[currentTurn].id);
+        // this.print("Ход " + listTurn[currentTurn].id);
         listTurn[currentTurn].Add(Tag.CanMotion);
     }
 
