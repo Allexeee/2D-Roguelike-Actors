@@ -15,6 +15,7 @@ public class Starter_01 : Starter
         Add<ProcessorPlayerInput>();
         Add<ProcessorMotion>();
         Add<ProcessorTurn>();
+        Add<ProcessorAIMotion>();
     }
 
     protected override void PostSetup()

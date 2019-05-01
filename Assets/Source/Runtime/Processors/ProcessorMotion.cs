@@ -9,6 +9,7 @@ using Time = Pixeye.Framework.Time;
 
 ///<summary>
 /// Процессор движения. При столкновении (взаимодействии с миром) вызывает обработчики в ComponentCollider
+/// Рассчитан для одновременного движения лишь одной сущности. Т.е. сущности будут двигаться по очереди
 ///</summary>
 public class ProcessorMotion : Processor, ITick
 {
@@ -39,6 +40,7 @@ public class ProcessorMotion : Processor, ITick
         Vector2 end = start + new Vector2(cMotion.target.x, cMotion.target.y);
 
         var checkHit = CheckObstacle(entity, start, end);
+        // this.print($"checkHit ({entity.id}) Target: " + checkHit.IsCollider + " Tr: " + checkHit.IsTrigger + " Ac: " + checkHit.IsActor + " En: " + checkHit.Entity.id);
         // Если припятствие - коллайдер с триггером или нет припятствия, то двигаемся
         if (!checkHit.IsCollider || checkHit.IsTrigger)
         {
@@ -48,16 +50,16 @@ public class ProcessorMotion : Processor, ITick
         else if (checkHit.IsActor)
         {
             var cCollider = entity.ComponentCollider();
-            // this.print("checkHit " + checkHit.IsCollider + " Tr: " + checkHit.IsTrigger + " Ac: " + checkHit.IsActor + " En: " + checkHit.Entity.id);
-            foreach (var action in cCollider.Actions)
-            {
-                action.Interact(entity, checkHit.Entity, checkHit.IsTrigger);
-            }
+            if (cCollider != null && cCollider.Actions != null)
+                foreach (var action in cCollider.Actions)
+                {
+                    action.Interact(entity, checkHit.Entity, checkHit.IsTrigger);
+                }
             moving = false;
         }
         if (checkHit.IsCollider && !checkHit.IsActor && !checkHit.IsTrigger) moving = false;
-        ProcessorSignals.Send(new SignalEndMotion { entity = entity });
         entity.Remove<ComponentMotion>();
+        ProcessorSignals.Send(new SignalEndMotion { entity = entity });
     }
 
     void AwakeInGroupOfMotions(in ent entity)
@@ -86,6 +88,7 @@ public class ProcessorMotion : Processor, ITick
 
         var ch = hit.CheckHit();
         if (ch.IsTrigger) lastColliders[entity] = ch.Collider2D;
+        // this.print($"Last Collider ({entity.id}) = {lastColliders[entity]}");
         return ch;
     }
 
