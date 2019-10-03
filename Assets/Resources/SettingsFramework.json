@@ -1,0 +1,10 @@
+{
+  "//": "How much entities do you need at start",
+  "SizeEntities": 2048,
+  "//": "Amount of component types. Must be multiple of 32",
+  "SizeComponents": 128,
+  "//": "Namespace for your components. Remove if you don't use namespaces",
+  "Namespace": "Pixeye.Source",
+  "//": "Extra Debug ( works only in the debug mode )",
+  "DebugNames": true
+}
