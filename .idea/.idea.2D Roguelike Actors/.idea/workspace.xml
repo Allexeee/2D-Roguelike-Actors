@@ -3,8 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="0f7f5f95-02d2-4684-a652-d92212a2d707" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/Assets/Old/TutorialInfo/Sprites/unity-logo.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Old/TutorialInfo/Sprites/unity-logo.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataGameSession.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataGameSession.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataGameSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/DataGameSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/FactoryBoard.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/FactoryBoard.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene Camera.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene Camera.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Scene Kernel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Scene Kernel.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Source/Pixeye.Source.asmdef" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Source/Pixeye.Source.asmdef.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Source/Runtime.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Source/Runtime/Common.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Source/Runtime/Common/Anim.cs" beforeDir="false" />
@@ -76,10 +84,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Source/FactoryBoard.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
+            <state relative-caret-position="2499">
               <caret line="147" column="56" selection-start-line="147" selection-start-column="56" selection-end-line="147" selection-end-column="56" />
               <folding>
                 <marker date="1570088813928" expanded="true" signature="0:5941" ph="/* Фабрика для создания доски (карты) ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/StarterGame.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <marker date="1569666156000" expanded="true" signature="45:675" ph="{...}" />
+                <marker date="1569666156000" expanded="true" signature="49:370" ph="/* Welcome to the ACTORS. ... */" />
+                <marker date="1569666156000" expanded="true" signature="407:673" ph="{...}" />
+                <marker date="1569666156000" expanded="true" signature="511:519" ph="{...}" />
+                <marker date="1569666156000" expanded="true" signature="617:670" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -91,7 +114,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Source/Runtime/Common/Tag.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Source/Runtime/Common/Model.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Source/FactoryBoard.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Source/Runtime/StarterGame.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -141,6 +167,19 @@
               <item name="" type="e068e287:UnityExplorerRootNode" />
               <item name="Assets" type="8711f2a6:AssetsRoot" />
               <item name="Source" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="8711f2a6:AssetsRoot" />
+              <item name="Source" type="1045f7f1:UnityExplorerNode" />
+              <item name="Runtime" type="1045f7f1:UnityExplorerNode" />
+            </path>
+            <path>
+              <item name="" type="e068e287:UnityExplorerRootNode" />
+              <item name="Assets" type="8711f2a6:AssetsRoot" />
+              <item name="Source" type="1045f7f1:UnityExplorerNode" />
+              <item name="Runtime" type="1045f7f1:UnityExplorerNode" />
+              <item name="Common" type="1045f7f1:UnityExplorerNode" />
             </path>
             <path>
               <item name="" type="e068e287:UnityExplorerRootNode" />
@@ -205,12 +244,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570088029308</updated>
-      <workItem from="1570088042373" duration="1444000" />
+      <workItem from="1570088042373" duration="1819000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1444000" />
+    <option name="totallyTimeSpent" value="1819000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -288,9 +327,48 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/Common/Model.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="12" lean-forward="true" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
+          <folding>
+            <marker date="1569666186000" expanded="true" signature="6:97" ph="..." />
+            <marker date="1569666186000" expanded="true" signature="122:749" ph="{...}" />
+            <marker date="1569666186000" expanded="true" signature="189:747" ph="{...}" />
+            <marker date="1569666186000" expanded="true" signature="352:677" ph="{...}" />
+            <marker date="1569666186000" expanded="true" signature="716:744" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/Common/Tag.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="15" selection-start-line="7" selection-start-column="15" selection-end-line="7" selection-end-column="15" />
+          <folding>
+            <marker date="1569666198000" expanded="true" signature="0:54" ph="/* Project : ecs ... */" />
+            <marker date="1569666198000" expanded="true" signature="101:226" ph="{...}" />
+            <marker date="1569666198000" expanded="true" signature="128:224" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/StarterGame.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1569666156000" expanded="true" signature="45:675" ph="{...}" />
+            <marker date="1569666156000" expanded="true" signature="49:370" ph="/* Welcome to the ACTORS. ... */" />
+            <marker date="1569666156000" expanded="true" signature="407:673" ph="{...}" />
+            <marker date="1569666156000" expanded="true" signature="511:519" ph="{...}" />
+            <marker date="1569666156000" expanded="true" signature="617:670" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Source/FactoryBoard.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
+        <state relative-caret-position="2499">
           <caret line="147" column="56" selection-start-line="147" selection-start-column="56" selection-end-line="147" selection-end-column="56" />
           <folding>
             <marker date="1570088813928" expanded="true" signature="0:5941" ph="/* Фабрика для создания доски (карты) ... */" />
