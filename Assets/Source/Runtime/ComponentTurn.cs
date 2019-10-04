@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	public struct ComponentTurn
+	public class ComponentTurn
 	{
 	}
 

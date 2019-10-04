@@ -11,15 +11,12 @@ namespace Roguelike
 		Group<ComponentObject, ComponentPlayer> groupPlayers;
 
 		Vector2[] direction = new[] {Vector2.up, Vector2.down, Vector2.left, Vector2.right};
-		
+
 		public void Tick(float delta)
 		{
-			if (source.length == 0) return;
-			ref var entity = ref source[0];
-
-//			foreach (ent entity in source)
-//			{
-				ref var cObject = ref entity.ComponentObject();
+			foreach (ent entity in source)
+			{
+				var cObject = entity.ComponentObject();
 
 				var dir    = direction.Random();
 				var target = dir + new Vector2(cObject.position.x, cObject.position.y);
@@ -30,7 +27,7 @@ namespace Roguelike
 				}
 
 				entity.Remove<ComponentTurnEnd>();
-//			}
+			}
 		}
 
 		public override void HandleEvents()

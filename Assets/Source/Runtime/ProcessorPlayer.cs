@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	sealed class ProcessorPlayer : Processor<ComponentObject, ComponentPlayer, ComponentTurnEnd>, ITick
+	sealed class ProcessorPlayer : Processor<ComponentObject, ComponentPlayer, ComponentFood, ComponentTurnEnd>, ITick
 	{
 		Group<ComponentObject, ComponentEnemy> groupEnemies;
 
@@ -15,37 +15,31 @@ namespace Roguelike
 			if (source.length == 0) return;
 			ref var entity = ref source[0];
 
-			ref var cObject = ref entity.ComponentObject();
-
-			var dir = default(Vector2);
-
-			if (Input.GetKeyDown(KeyCode.UpArrow))
-				dir = Vector2.up;
-			else if (Input.GetKeyDown(KeyCode.DownArrow))
-				dir = Vector2.down;
-			else if (Input.GetKeyDown(KeyCode.LeftArrow))
-				dir = Vector2.left;
-			else if (Input.GetKeyDown(KeyCode.RightArrow))
-				dir = Vector2.right;
+			var dir = CheckInput();
 
 			if (dir == default) return;
 
+			var cObject = entity.ComponentObject();
+			var cFood = entity.ComponentFood();
+			
 			var target = dir + new Vector2(cObject.position.x, cObject.position.y);
 
 			if (!Phys.HasColliderInPoint(target, 1 << 10, out ent withEntity))
 			{
 				Game.MoveTo(entity, target);
+				Game.DataLocal.food--;
 				entity.Remove<ComponentTurnEnd>();
 
 				if (withEntity.exist)
 				{
 					if (withEntity.Has(Tag.Exit))
 						ProcessorScene.To("Scene Game");
+					else if (withEntity.Get(out ComponentFood with_cFood))
+					{
+						Game.DataLocal.food += with_cFood.count;
+						withEntity.Release();
+					}
 				}
-			}
-			else
-			{
-				Debug.Log($"{withEntity}");
 			}
 		}
 
@@ -61,6 +55,21 @@ namespace Roguelike
 
 				break;
 			}
+		}
+
+		Vector2 CheckInput()
+		{
+			var dir = default(Vector2);
+
+			if (Input.GetKeyDown(KeyCode.UpArrow))
+				dir = Vector2.up;
+			else if (Input.GetKeyDown(KeyCode.DownArrow))
+				dir = Vector2.down;
+			else if (Input.GetKeyDown(KeyCode.LeftArrow))
+				dir = Vector2.left;
+			else if (Input.GetKeyDown(KeyCode.RightArrow))
+				dir = Vector2.right;
+			return dir;
 		}
 	}
 }

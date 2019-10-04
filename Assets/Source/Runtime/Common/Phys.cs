@@ -18,7 +18,7 @@ namespace Roguelike
 
 		public static bool HasColliderInPoint(Vector2 pos, int mask, out ent entity)
 		{
-			entity = -1;
+			entity = default;
 			var hit = OverlapPoint2D(pos, mask);
 			if (hit > 0)
 			{
@@ -32,24 +32,6 @@ namespace Roguelike
 			}
 
 			return false;
-		}
-
-
-		public static ent GetEntity<T>(Vector2 position, Vector2 direction, float distance, int mask)
-		{
-			var hit = Physics2D.Raycast(position, direction, distance, mask);
-			if (hit)
-			{
-				var index = HelperArray.BinarySearch(ref buffer.pointers, hit.collider.GetHashCode(), 0, buffer.length);
-				if (index == -1)
-					return default;
-
-				ref var nextEntity = ref buffer.entities[index];
-				if (nextEntity.Has<T>())
-					return nextEntity;
-			}
-
-			return -1;
 		}
 	}
 }

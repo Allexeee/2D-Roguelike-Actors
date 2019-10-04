@@ -46,6 +46,7 @@
             <e p="Common" t="Include">
               <e p="BufferSortedEntities.cs" t="Include" />
               <e p="Game.Create.cs" t="Include" />
+              <e p="Game.DataLocal.cs" t="Include" />
               <e p="Game.Move.cs" t="Include" />
               <e p="Model.Creature.cs" t="Include" />
               <e p="Model.cs" t="Include" />
@@ -56,6 +57,7 @@
             </e>
             <e p="ComponentCollider.cs" t="Include" />
             <e p="ComponentEnemy.cs" t="Include" />
+            <e p="ComponentFood.cs" t="Include" />
             <e p="ComponentMove.cs" t="Include" />
             <e p="ComponentObject.cs" t="Include" />
             <e p="ComponentPlayer.cs" t="Include" />
@@ -73,7 +75,6 @@
             </e>
             <e p="ProcessorCollider.cs" t="Include" />
             <e p="ProcessorEnemy.cs" t="Include" />
-            <e p="ProcessorMotion.cs" t="Include" />
             <e p="ProcessorPlayer.cs" t="Include" />
             <e p="StarterGame.cs" t="Include" />
           </e>

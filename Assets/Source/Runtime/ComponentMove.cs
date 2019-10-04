@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	public struct ComponentMove
+	public class ComponentMove
 	{
 		public Vector2 target;
 	}

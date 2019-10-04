@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	public struct ComponentCollider
+	public class ComponentCollider
 	{
 		public Collider2D collider;
 	}

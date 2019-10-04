@@ -8,10 +8,7 @@ namespace Roguelike
 		public static void MoveTo(ent entity, Vector2 target)
 		{
 			ref var cObject = ref entity.ComponentObject();
-
 			cObject.position = entity.transform.position = target;
-//			ref var cMove = ref entity.AddGet<ComponentMove>();
-//			cMove.target = target;
 		}
 	}
 }

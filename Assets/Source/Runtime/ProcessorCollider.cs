@@ -12,14 +12,14 @@ namespace Roguelike
 		{
 			foreach (ent entity in source.added)
 			{
-				ref var cCollider = ref entity.ComponentCollider();
-				
+				var cCollider = entity.ComponentCollider();
+
 				Phys.buffer.Insert(entity, cCollider.collider.GetHashCode());
 			}
 
 			foreach (ent entity in source.removed)
 			{
-				ref var cCollider = ref entity.ComponentCollider();
+				var cCollider = entity.ComponentCollider();
 
 				Phys.buffer.Remove(cCollider.collider.GetHashCode());
 			}

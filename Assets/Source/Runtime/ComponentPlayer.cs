@@ -4,9 +4,9 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	public struct ComponentPlayer
+	public class ComponentPlayer
 	{
-		
+		public ent observer;
 	}
 
 	#region HELPERS
