@@ -20,12 +20,14 @@ namespace Roguelike
 		{
 			entity = -1;
 			var hit = OverlapPoint2D(pos, mask);
-			Debug.Log($"Hits {hit}");
 			if (hit > 0)
 			{
 				var index = HelperArray.BinarySearch(ref buffer.pointers, colliders[0].GetHashCode(), 0, buffer.length);
 				if (index != -1)
-					entity = ref buffer.entities[index];
+					entity = buffer.entities[index];
+				if (colliders[0].isTrigger)
+					return false;
+
 				return true;
 			}
 

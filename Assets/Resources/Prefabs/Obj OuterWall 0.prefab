@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4397888700912950467}
-  m_Layer: 8
-  m_Name: obj_OuterWall1
+  m_Layer: 10
+  m_Name: Obj OuterWall 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,11 +43,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: collider
-      objectReference: {fileID: 0}
-    - target: {fileID: 1701848213280006772, guid: bd6747cfdcdf9f8448a5861e89a7b900,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2267422998551416113, guid: bd6747cfdcdf9f8448a5861e89a7b900,
         type: 3}
@@ -104,11 +99,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5246964940231713569, guid: bd6747cfdcdf9f8448a5861e89a7b900,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6747cfdcdf9f8448a5861e89a7b900, type: 3}
 --- !u!4 &3020053526936808613 stripped
@@ -132,7 +122,7 @@ PrefabInstance:
     - target: {fileID: 721478804228627477, guid: fc81c6b2eeb01ee4b985f63d4a70acc8,
         type: 3}
       propertyPath: m_Layer
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8671189597184283578, guid: fc81c6b2eeb01ee4b985f63d4a70acc8,
         type: 3}

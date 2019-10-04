@@ -9,7 +9,9 @@ namespace Roguelike
 	{
 		[TagField]
 		public const int None = 0;
+		
+		// Objects
 		[TagField]
-		public const int Player = 1;
+		public const int Exit = 100;
 	}
 }

@@ -13,6 +13,8 @@ namespace Roguelike
 		protected override void Setup()
 		{
 			BoardSetup();
+			
+			Toolbox.Add<ProcessorCollider>();
 
 			Toolbox.Add<ProcessorMotion>();
 			Toolbox.Add<ProcessorPlayer>();
@@ -42,8 +44,10 @@ namespace Roguelike
 			}
 			
 			Game.Create.Player(1,1);
-//			Game.Create.Player(5,5);
 			Game.Create.Enemy(5,5);
+			Game.Create.Enemy(7,7);
+			Game.Create.Enemy(9,9);
+			Game.Create.Exit(columns-1,rows-1);
 
 			Camera.main.transform.position = new Vector3(rows / 2, columns / 2, -100);
 		}

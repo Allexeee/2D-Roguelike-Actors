@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 7798051254281439440, guid: 902f968e71c5fff429f94cbfa866ae8a,
         type: 3}
       propertyPath: m_Name
-      value: obj_OuterWall2
+      value: Obj OuterWall 1
       objectReference: {fileID: 0}
     - target: {fileID: 4397888700912950467, guid: 902f968e71c5fff429f94cbfa866ae8a,
         type: 3}

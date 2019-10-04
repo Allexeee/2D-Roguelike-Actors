@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8159723371942912918}
   m_Layer: 0
-  m_Name: obj_Floor1
+  m_Name: Obj Floor 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,6 +42,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: view
+      objectReference: {fileID: 0}
+    - target: {fileID: 721478804228627477, guid: fc81c6b2eeb01ee4b985f63d4a70acc8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8671189597184283578, guid: fc81c6b2eeb01ee4b985f63d4a70acc8,
         type: 3}

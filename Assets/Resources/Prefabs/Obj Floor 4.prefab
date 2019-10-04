@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2039336714624581387, guid: 561ca983f45b92a4ea76f3a882983ffa,
         type: 3}
       propertyPath: m_Name
-      value: obj_Floor5
+      value: Obj Floor 4
       objectReference: {fileID: 0}
     - target: {fileID: 8159723371942912918, guid: 561ca983f45b92a4ea76f3a882983ffa,
         type: 3}

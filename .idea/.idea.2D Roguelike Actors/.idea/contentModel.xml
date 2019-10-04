@@ -49,6 +49,7 @@
               <e p="Game.Move.cs" t="Include" />
               <e p="Model.Creature.cs" t="Include" />
               <e p="Model.cs" t="Include" />
+              <e p="Model.Objects.cs" t="Include" />
               <e p="Phys.cs" t="Include" />
               <e p="Prefab.cs" t="Include" />
               <e p="Tag.cs" t="Include" />
@@ -70,6 +71,7 @@
                 <e p="Shader Console Blur.shader" t="Include" />
               </e>
             </e>
+            <e p="ProcessorCollider.cs" t="Include" />
             <e p="ProcessorEnemy.cs" t="Include" />
             <e p="ProcessorMotion.cs" t="Include" />
             <e p="ProcessorPlayer.cs" t="Include" />

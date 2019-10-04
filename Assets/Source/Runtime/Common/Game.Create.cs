@@ -11,11 +11,17 @@ namespace Roguelike
 			{
 				Actor.Create(Prefab.Player, new Vector3(x, y));
 			}
-			
+
 			public static void Enemy(int x, int y)
 			{
-				Actor.Create(Prefab.Enemies[0], Model.Enemy , new Vector3(x, y));
+				Actor.Create(Prefab.Enemies[0], Model.Enemy, new Vector3(x, y));
 			}
+			
+			public static void Exit(int x, int y)
+			{
+				Actor.Create(Prefab.Exit, Model.Exit, new Vector3(x, y));
+			}
+
 		}
 	}
 }

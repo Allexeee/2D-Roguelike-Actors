@@ -29,13 +29,23 @@ namespace Roguelike
 				dir = Vector2.right;
 
 			if (dir == default) return;
-			
+
 			var target = dir + new Vector2(cObject.position.x, cObject.position.y);
 
-			if (!Phys.HasColliderInPoint(target, 1 << 8, out ent withEntity))
+			if (!Phys.HasColliderInPoint(target, 1 << 10, out ent withEntity))
 			{
 				Game.MoveTo(entity, target);
 				entity.Remove<ComponentTurnEnd>();
+
+				if (withEntity.exist)
+				{
+					if (withEntity.Has(Tag.Exit))
+						ProcessorScene.To("Scene Game");
+				}
+			}
+			else
+			{
+				Debug.Log($"{withEntity}");
 			}
 		}
 
@@ -43,12 +53,13 @@ namespace Roguelike
 		{
 			foreach (ent entity in source.removed)
 			{
-				Debug.Log($"{source.length}, {groupEnemies.length}");
 				if (source.length == 0)
 					foreach (ent entityEnemy in groupEnemies)
 					{
 						entityEnemy.Add<ComponentTurnEnd>();
 					}
+
+				break;
 			}
 		}
 	}
