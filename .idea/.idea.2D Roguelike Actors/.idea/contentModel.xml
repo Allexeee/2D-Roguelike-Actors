@@ -44,9 +44,22 @@
           <e p="FactoryBoard.cs" t="Include" />
           <e p="Runtime" t="Include">
             <e p="Common" t="Include">
+              <e p="BufferSortedEntities.cs" t="Include" />
+              <e p="Game.Create.cs" t="Include" />
+              <e p="Game.Move.cs" t="Include" />
+              <e p="Model.Creature.cs" t="Include" />
               <e p="Model.cs" t="Include" />
+              <e p="Phys.cs" t="Include" />
+              <e p="Prefab.cs" t="Include" />
               <e p="Tag.cs" t="Include" />
             </e>
+            <e p="ComponentCollider.cs" t="Include" />
+            <e p="ComponentEnemy.cs" t="Include" />
+            <e p="ComponentMove.cs" t="Include" />
+            <e p="ComponentObject.cs" t="Include" />
+            <e p="ComponentPlayer.cs" t="Include" />
+            <e p="ComponentTurn.cs" t="Include" />
+            <e p="ComponentTurnEnd.cs" t="Include" />
             <e p="PlugConsole" t="Include">
               <e p="CommandsConsole.cs" t="Include" />
               <e p="CommandsGame.cs" t="Include" />
@@ -57,6 +70,9 @@
                 <e p="Shader Console Blur.shader" t="Include" />
               </e>
             </e>
+            <e p="ProcessorEnemy.cs" t="Include" />
+            <e p="ProcessorMotion.cs" t="Include" />
+            <e p="ProcessorPlayer.cs" t="Include" />
             <e p="StarterGame.cs" t="Include" />
           </e>
         </e>

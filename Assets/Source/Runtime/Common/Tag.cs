@@ -3,13 +3,13 @@
 
 using Pixeye.Actors;
 
-namespace Pixeye.Source
+namespace Roguelike
 {
 	public class Tag : ITag
 	{
 		[TagField]
-		public const int StateAlive = 0;
+		public const int None = 0;
 		[TagField]
-		public const int Hero = 1;
+		public const int Player = 1;
 	}
 }

@@ -4,7 +4,7 @@ using Pixeye.Actors;
 using UnityEditor;
 using UnityEngine;
 
-namespace Pixeye.Source
+namespace Roguelike
 {
 	[CreateAssetMenu]
 	sealed partial class Model : ScriptableBuild
