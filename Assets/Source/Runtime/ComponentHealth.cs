@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	public class ComponentFood
+	public class ComponentHealth
 	{
 		public int count;
 	}
@@ -12,15 +12,15 @@ namespace Roguelike
 
 	static partial class Component
 	{
-		public const string Food = "Roguelike.ComponentFood";
+		public const string Health = "Roguelike.ComponentHealth";
 
-		public static ref ComponentFood ComponentFood(in this ent entity) =>
-			ref Storage<ComponentFood>.components[entity.id];
+		public static ref ComponentHealth ComponentHealth(in this ent entity) =>
+			ref Storage<ComponentHealth>.components[entity.id];
 	}
 
-	sealed class StorageComponentFood : Storage<ComponentFood>
+	sealed class StorageComponentHealth : Storage<ComponentHealth>
 	{
-		public override ComponentFood Create() => new ComponentFood();
+		public override ComponentHealth Create() => new ComponentHealth();
 
 		// Use for cleaning components that were removed at the current frame.
 		public override void Dispose(indexes disposed)

@@ -9,6 +9,16 @@ namespace Roguelike
 	{
 		public static class Create
 		{
+			static void Player()
+			{
+				ref var entity = ref Actor.Create(Prefab.Player, new Vector3(1, 1)).entity;
+				var cPlayer = entity.ComponentPlayer();
+				var cHealth = entity.ComponentHealth();
+				
+				var go = GameObject.Find("UI/Food/Text").GetComponent<TMP_Text>();
+				cPlayer.observer = cHealth.ValueChange(src => src.count, count => go.text = count.ToString());
+			}
+			
 			public static void Board(int columns = 10, int rows = 10)
 			{
 				List<Vector2> allPos = new List<Vector2>(columns * rows);
@@ -32,17 +42,15 @@ namespace Roguelike
 						}
 					}
 				}
-
-				Actor.Create(Prefab.Player, new Vector3(1, 1));
+			
+				Create.Player();
+				
 				Actor.Create(Prefab.Exit, Model.Exit , new Vector3(rows - 1, columns - 1));
 
-				CreateObjectAtRandom(ref Prefab.Walls, 5, 10);
-				CreateEntityAtRandom(ref Prefab.Enemies, 2, 5, Model.Enemy);
+				CreateEntityAtRandom(ref Prefab.Walls, 5, 10, Model.Wall);
+				int enemyCount = (int)Mathf.Log(DataLocal.level, 2f);
+				CreateEntityAtRandom(ref Prefab.Enemies, enemyCount, enemyCount, Model.Enemy);
 				CreateEntityAtRandom(ref Prefab.Foods, 2, 5, Model.Food);
-				
-				var go = GameObject.Find("UI/Food/Text").GetComponent<TMP_Text>();
-				var dl = new Game.DataLocal();
-				dl.ValueChange(src => src., count => go.text = count.ToString());
 				
 				Camera.main.transform.position = new Vector3(rows / 2, columns / 2, -100);
 

@@ -10,28 +10,32 @@ namespace Roguelike
 		{
 			entity.Set<ComponentTurnEnd>();
 
-			ref var cPlayer = ref entity.Set<ComponentPlayer>();
-			ref var cFood = ref entity.Set<ComponentFood>();
-			ref var cObject   = ref entity.Set<ComponentObject>();
-			ref var cCollider = ref entity.Set<ComponentCollider>();
+			var cPlayer   = entity.Set<ComponentPlayer>();
+			var cObject   = entity.Set<ComponentObject>();
+			var cCollider = entity.Set<ComponentCollider>();
+			var cHealth   = entity.Set<ComponentHealth>();
+			var cAnimator = entity.Set<ComponentAnimator>();
+			var cRenderer = entity.Set<ComponentRenderer>();
 
 			cObject.position = entity.transform.position;
 
 			cCollider.collider = entity.GetMono<Collider2D>("collider");
 
-			cFood.count = 40;
+			cHealth.count = Game.DataLocal.food;
 
-//			var go = GameObject.Find("UI/Food/Text").GetComponent<TMP_Text>();
-//
-//			cPlayer.observer = cFood.ValueChange(src => src.count, count => go.text = count.ToString());
+			cRenderer.source = entity.GetMono<SpriteRenderer>("view");
+
+			cAnimator.map            = Database.Player;
+			cAnimator.guide          = AnimatorGuide.Default;
+			cAnimator.animation_next = Anim.Idle;
 		}
 
 		public static void Enemy(in ent entity)
 		{
 			entity.Set<ComponentEnemy>();
-			
-			ref var cObject   = ref entity.Set<ComponentObject>();
-			ref var cCollider = ref entity.Set<ComponentCollider>();
+
+			var cObject   = entity.Set<ComponentObject>();
+			var cCollider = entity.Set<ComponentCollider>();
 
 			cObject.position = entity.transform.position;
 

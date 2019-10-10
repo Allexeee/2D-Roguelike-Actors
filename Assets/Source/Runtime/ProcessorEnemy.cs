@@ -21,9 +21,15 @@ namespace Roguelike
 				var dir    = direction.Random();
 				var target = dir + new Vector2(cObject.position.x, cObject.position.y);
 
-				if (!Phys.HasColliderInPoint(target, 1 << 10, out ent withEntity))
+				if (!Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity))
 				{
-					Game.MoveTo(entity, target);
+					if (!withEntity.exist)
+						Game.MoveTo(entity, target);
+				}
+				else if (withEntity.exist && withEntity.Get(out ComponentPlayer cPlayer, out ComponentHealth cHealth))
+				{
+					Debug.Log("Attack!");
+					cHealth.count -= 100;
 				}
 
 				entity.Remove<ComponentTurnEnd>();

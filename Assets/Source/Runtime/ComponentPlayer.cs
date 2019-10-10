@@ -6,7 +6,7 @@ namespace Roguelike
 {
 	public class ComponentPlayer
 	{
-		public ent observer;
+		public ent observer = default;
 	}
 
 	#region HELPERS
@@ -29,6 +29,7 @@ namespace Roguelike
 			foreach (var id in disposed)
 			{
 				ref var component = ref components[id];
+				component.observer.Release();
 			}
 		}
 	}

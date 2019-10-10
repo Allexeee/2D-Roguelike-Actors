@@ -16,7 +16,7 @@ namespace Roguelike
 			return Physics2D.OverlapPointNonAlloc(pos, colliders, mask, min, max);
 		}
 
-		public static bool HasColliderInPoint(Vector2 pos, int mask, out ent entity)
+		public static bool HasSolidColliderInPoint(Vector2 pos, int mask, out ent entity)
 		{
 			entity = default;
 			var hit = OverlapPoint2D(pos, mask);

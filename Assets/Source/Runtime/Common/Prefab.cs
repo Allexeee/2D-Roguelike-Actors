@@ -19,6 +19,5 @@ namespace Roguelike
 			Box.Get<GameObject>("Prefabs/Obj Food"),
 			Box.Get<GameObject>("Prefabs/Obj Soda"),
 		};
-
 	}
 }

@@ -8,20 +8,34 @@ namespace Roguelike
 		public static void Exit(in ent entity)
 		{
 			entity.Set(Tag.Exit);
-			ref var cCollider = ref entity.Set<ComponentCollider>();
+			var cCollider = entity.Set<ComponentCollider>();
 
 			cCollider.collider = entity.GetMono<Collider2D>("collider");
 		}
-		
+
 		public static void Food(in ent entity)
 		{
-			ref var cFood = ref entity.Set<ComponentFood>();
-			ref var cCollider = ref entity.Set<ComponentCollider>();
+			var cHealth   = entity.Set<ComponentHealth>();
+			var cCollider = entity.Set<ComponentCollider>();
 
 			cCollider.collider = entity.GetMono<Collider2D>("collider");
 
-			cFood.count = 5;
+			cHealth.count = 5;
 		}
 
+		public static void Wall(in ent entity)
+		{
+			entity.Set(Tag.Wall);
+
+			var cCollider = entity.Set<ComponentCollider>();
+			var cHealth   = entity.Set<ComponentHealth>();
+			var cRenderer = entity.Set<ComponentRenderer>();
+
+			cCollider.collider = entity.GetMono<Collider2D>("collider");
+
+			cHealth.count = 5;
+
+			cRenderer.source = entity.GetMono<SpriteRenderer>("view");
+		}
 	}
 }

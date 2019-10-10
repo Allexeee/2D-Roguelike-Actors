@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	sealed class ProcessorPlayer : Processor<ComponentObject, ComponentPlayer, ComponentFood, ComponentTurnEnd>, ITick
+	sealed class ProcessorPlayer : Processor<ComponentObject, ComponentPlayer, ComponentTurnEnd>, ITick
 	{
 		Group<ComponentObject, ComponentEnemy> groupEnemies;
 
@@ -20,25 +20,39 @@ namespace Roguelike
 			if (dir == default) return;
 
 			var cObject = entity.ComponentObject();
-			var cFood = entity.ComponentFood();
-			
+			var cHealth = entity.ComponentHealth();
+
 			var target = dir + new Vector2(cObject.position.x, cObject.position.y);
 
-			if (!Phys.HasColliderInPoint(target, 1 << 10, out ent withEntity))
+			if (!Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity))
 			{
 				Game.MoveTo(entity, target);
-				Game.DataLocal.food--;
 				entity.Remove<ComponentTurnEnd>();
+				Game.Draw.SetAnimation(entity, Anim.Idle);
 
 				if (withEntity.exist)
 				{
 					if (withEntity.Has(Tag.Exit))
-						ProcessorScene.To("Scene Game");
-					else if (withEntity.Get(out ComponentFood with_cFood))
+						Game.NextLevel(entity);
+					else if (withEntity.Get(out ComponentHealth cHealth_with))
 					{
-						Game.DataLocal.food += with_cFood.count;
+						cHealth.count += cHealth_with.count;
 						withEntity.Release();
 					}
+				}
+				else
+					cHealth.count--;
+			}
+			else
+			{
+				if (withEntity.Get(out ComponentHealth cHealth_with))
+				{
+					Game.Draw.SetAnimation(entity, Anim.Attack, Anim.Once);
+					ProcessorSignals.Send(new SignalChangeHealth
+					{
+						target = withEntity,
+						count  = -1
+					});
 				}
 			}
 		}
@@ -48,10 +62,11 @@ namespace Roguelike
 			foreach (ent entity in source.removed)
 			{
 				if (source.length == 0)
-					foreach (ent entityEnemy in groupEnemies)
-					{
-						entityEnemy.Add<ComponentTurnEnd>();
-					}
+					if (groupEnemies.length != 0)
+						foreach (ent entityEnemy in groupEnemies)
+							entityEnemy.Add<ComponentTurnEnd>();
+					else
+						entity.Add<ComponentTurnEnd>();
 
 				break;
 			}

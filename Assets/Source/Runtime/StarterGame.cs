@@ -16,8 +16,9 @@ namespace Roguelike
 			Game.Create.Board();
 
 			Toolbox.Add<ProcessorCollider>();
+			Toolbox.Add<ProcessorAnimator>();
+			Toolbox.Add<ProcessorHealth>();
 
-//			Toolbox.Add<ProcessorMotion>();
 			Toolbox.Add<ProcessorPlayer>();
 			Toolbox.Add<ProcessorEnemy>();
 		}
