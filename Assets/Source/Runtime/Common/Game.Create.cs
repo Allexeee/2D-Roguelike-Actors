@@ -47,14 +47,32 @@ namespace Roguelike
 				
 				Actor.Create(Prefab.Exit, Model.Exit , new Vector3(rows - 1, columns - 1));
 
-				CreateEntityAtRandom(ref Prefab.Walls, 5, 10, Model.Wall);
+				CreateEntityAtRandom(Prefab.Wall, Model.Wall, ref Database.Walls, 5, 10);
+				
 				int enemyCount = (int)Mathf.Log(DataLocal.level, 2f);
-				CreateEntityAtRandom(ref Prefab.Enemies, enemyCount, enemyCount, Model.Enemy);
-				CreateEntityAtRandom(ref Prefab.Foods, 2, 5, Model.Food);
+				CreateEntityAtRandom1(ref Model.Enemies, enemyCount, enemyCount);
+				
+				CreateEntityAtRandom(Prefab.Food, Model.Food, ref Database.Foods, 2, 5);
 				
 				Camera.main.transform.position = new Vector3(rows / 2, columns / 2, -100);
+				
+				void CreateEntityAtRandom(GameObject go, ModelComposer model, ref Sprite[] tileArray, int minimum, int maximum)
+				{
+					int objectCount = Rand.Get(minimum, maximum + 1);
 
-				void CreateObjectAtRandom(ref GameObject[] tileArray, int minimum, int maximum)
+					for (int i = 0; i < objectCount; i++)
+					{
+						var randomPosition = allPos.Random();
+						allPos.Remove(randomPosition);
+						
+						var entity = Entity.Create(go, model, randomPosition, true);
+						var cObject = entity.ComponentObject();
+						cObject.renderer.sprite = tileArray.Random();
+
+					}
+				}
+				
+				void CreateEntityAtRandom1(ref ModelComposer[] tileArray, int minimum, int maximum)
 				{
 					int objectCount = Rand.Get(minimum, maximum + 1);
 
@@ -63,22 +81,10 @@ namespace Roguelike
 						var randomPosition = allPos.Random();
 						allPos.Remove(randomPosition);
 
-						Obj.Spawn(tileArray.Random(), randomPosition);
+						Entity.Create(Prefab.Enemy, tileArray.Random(), randomPosition, true);
 					}
 				}
 
-				void CreateEntityAtRandom(ref GameObject[] tileArray, int minimum, int maximum, ModelComposer model)
-				{
-					int objectCount = Rand.Get(minimum, maximum + 1);
-
-					for (int i = 0; i < objectCount; i++)
-					{
-						var randomPosition = allPos.Random();
-						allPos.Remove(randomPosition);
-
-						Entity.Create(tileArray.Random(), model, randomPosition, true);
-					}
-				}
 			}
 		}
 	}

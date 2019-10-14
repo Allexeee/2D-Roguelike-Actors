@@ -1,4 +1,5 @@
 // source: https://github.com/dimmpixeye/blog-ru/issues/2
+
 using Pixeye.Actors;
 using UnityEngine;
 
@@ -10,13 +11,17 @@ namespace Roguelike
 		// Спрайты
 		//===============================//
 
-		public static Sprite[] RuinedWall;
-		
+		public static Sprite[] RuinedWalls;
+		public static Sprite[] Walls;
+		public static Sprite[] Foods;
+
 		//===============================//
 		// Анимации
 		//===============================//
 
 		public static Sequences Player;
+		public static Sequences Enemy1;
+		public static Sequences Enemy2;
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		static void Setup()
@@ -28,9 +33,13 @@ namespace Roguelike
 			// LOAD
 			//===============================//
 
-			RuinedWall = atlas.Slice("RuinedWall_0", 7);
-			
+			RuinedWalls = atlas.Slice("RuinedWall_0", 7);
+			Walls       = atlas.Slice("Wall_0", 8);
+			Foods       = atlas.Slice("Food_0", 2);
+
 			LoadPlayer();
+			LoadEnemy1();
+			LoadEnemy2();
 
 			//===============================//
 			// Methods
@@ -42,12 +51,44 @@ namespace Roguelike
 
 				sequences.Add(Anim.Idle, new Sequence
 				{
-					sprites = atlas.Slice(src => src.name.Equals("Player_Idle_0"),6,1),
+					sprites = atlas.Slice(src => src.name.Equals("Player_Idle_0"), 6, 3),
 				});
 
 				sequences.Add(Anim.Attack, new Sequence
 				{
-					sprites = atlas.Slice(src => src.name.Equals("Player_Chop_0"),2,1),
+					sprites        = atlas.Slice(src => src.name.Equals("Player_Chop_0"), 2, 2),
+					animation_next = Anim.Idle
+				});
+			}
+
+			void LoadEnemy1()
+			{
+				sequences = Enemy1 = new Sequences();
+
+				sequences.Add(Anim.Idle, new Sequence
+				{
+					sprites = atlas.Slice(src => src.name.Equals("Enemy1_Idle_0"), 6, 3),
+				});
+
+				sequences.Add(Anim.Attack, new Sequence
+				{
+					sprites        = atlas.Slice(src => src.name.Equals("Enemy1_Attack_0"), 2, 2),
+					animation_next = Anim.Idle
+				});
+			}
+
+			void LoadEnemy2()
+			{
+				sequences = Enemy2 = new Sequences();
+
+				sequences.Add(Anim.Idle, new Sequence
+				{
+					sprites = atlas.Slice(src => src.name.Equals("Enemy2_Idle_0"), 6, 3),
+				});
+
+				sequences.Add(Anim.Attack, new Sequence
+				{
+					sprites        = atlas.Slice(src => src.name.Equals("Enemy2_Attack_0"), 2, 2),
 					animation_next = Anim.Idle
 				});
 			}

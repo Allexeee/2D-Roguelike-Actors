@@ -24,37 +24,74 @@ namespace Roguelike
 
 			var target = dir + new Vector2(cObject.position.x, cObject.position.y);
 
-			if (!Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity))
+			var hasSolidColliderInPoint = Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity);
+
+			if (hasSolidColliderInPoint && (!withEntity.exist || withEntity.Has<ComponentEnemy>())) return;
+
+			if (!hasSolidColliderInPoint)
 			{
 				Game.MoveTo(entity, target);
-				entity.Remove<ComponentTurnEnd>();
-				Game.Draw.SetAnimation(entity, Anim.Idle);
-
+			
+				// Встали на некий триггер
 				if (withEntity.exist)
 				{
+					// Выход
 					if (withEntity.Has(Tag.Exit))
 						Game.NextLevel(entity);
+					// Еда
 					else if (withEntity.Get(out ComponentHealth cHealth_with))
 					{
 						cHealth.count += cHealth_with.count;
 						withEntity.Release();
 					}
 				}
-				else
-					cHealth.count--;
 			}
+			// Стена
 			else
 			{
-				if (withEntity.Get(out ComponentHealth cHealth_with))
+				Game.Draw.SetAnimation(entity, Anim.Attack, Anim.Once);
+				ProcessorSignals.Send(new SignalChangeHealth
 				{
-					Game.Draw.SetAnimation(entity, Anim.Attack, Anim.Once);
-					ProcessorSignals.Send(new SignalChangeHealth
-					{
-						target = withEntity,
-						count  = -1
-					});
-				}
+					target = withEntity,
+					count  = -1
+				});
 			}
+			
+			cHealth.count -= 1;
+			entity.Remove<ComponentTurnEnd>();
+
+//			if (!Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity))
+//			{
+//				Game.MoveTo(entity, target);
+//				entity.Remove<ComponentTurnEnd>();
+//				Game.Draw.SetAnimation(entity, Anim.Idle);
+//
+//				if (withEntity.exist)
+//				{
+//					if (withEntity.Has(Tag.Exit))
+//						Game.NextLevel(entity);
+//					else if (withEntity.Get(out ComponentHealth cHealth_with))
+//					{
+//						cHealth.count += cHealth_with.count;
+//						withEntity.Release();
+//					}
+//				}
+//				else
+//					cHealth.count--;
+//			}
+//			else
+//			{
+//				if (withEntity.Get(out ComponentHealth cHealth_with))
+//				{
+//					Game.Draw.SetAnimation(entity, Anim.Attack, Anim.Once);
+//					ProcessorSignals.Send(new SignalChangeHealth
+//					{
+//						target = withEntity,
+//						count  = -1
+//					});
+//					entity.Remove<ComponentTurnEnd>();
+//				}
+//			}
 		}
 
 		public override void HandleEvents()

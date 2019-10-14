@@ -58,25 +58,25 @@ TextureImporter:
     second: Enemy2_Idle_5
   - first:
       213: 21300036
-    second: Scavengers_SpriteSheet_18
+    second: Food_0
   - first:
       213: 21300038
-    second: Scavengers_SpriteSheet_19
+    second: Food_1
   - first:
       213: 21300040
     second: Scavengers_SpriteSheet_20
   - first:
       213: 21300042
-    second: Scavengers_SpriteSheet_21
+    second: Wall_0
   - first:
       213: 21300044
-    second: Scavengers_SpriteSheet_22
+    second: Wall_1
   - first:
       213: 21300046
-    second: Scavengers_SpriteSheet_23
+    second: Wall_2
   - first:
       213: 21300048
-    second: Scavengers_SpriteSheet_24
+    second: Wall_3
   - first:
       213: 21300050
     second: OuterWall_0
@@ -85,19 +85,19 @@ TextureImporter:
     second: OuterWall_1
   - first:
       213: 21300054
-    second: Scavengers_SpriteSheet_27
+    second: Wall_4
   - first:
       213: 21300056
     second: OuterWall_2
   - first:
       213: 21300058
-    second: Scavengers_SpriteSheet_29
+    second: Wall_5
   - first:
       213: 21300060
-    second: Scavengers_SpriteSheet_30
+    second: Wall_6
   - first:
       213: 21300062
-    second: Scavengers_SpriteSheet_31
+    second: Wall_7
   - first:
       213: 21300064
     second: Scavengers_SpriteSheet_32
@@ -620,7 +620,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_18
+      name: Food_0
       rect:
         serializedVersion: 2
         x: 64
@@ -641,7 +641,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_19
+      name: Food_1
       rect:
         serializedVersion: 2
         x: 96
@@ -683,7 +683,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_21
+      name: Wall_0
       rect:
         serializedVersion: 2
         x: 160
@@ -704,7 +704,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_22
+      name: Wall_1
       rect:
         serializedVersion: 2
         x: 192
@@ -725,7 +725,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_23
+      name: Wall_2
       rect:
         serializedVersion: 2
         x: 224
@@ -746,7 +746,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_24
+      name: Wall_3
       rect:
         serializedVersion: 2
         x: 0
@@ -809,7 +809,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_27
+      name: Wall_4
       rect:
         serializedVersion: 2
         x: 96
@@ -851,7 +851,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_29
+      name: Wall_5
       rect:
         serializedVersion: 2
         x: 160
@@ -872,7 +872,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_30
+      name: Wall_6
       rect:
         serializedVersion: 2
         x: 192
@@ -893,7 +893,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_31
+      name: Wall_7
       rect:
         serializedVersion: 2
         x: 224

@@ -7,12 +7,12 @@ namespace Roguelike
 	{
 		public static class Draw
 		{
-			public const float TimeBetweenFrames = 0.14f;//0.064f;
+			public const float TimeBetweenFrames = 0.064f;//0.064f;
 			
 			public static float SetAnimation(in ent entity, int animation_id, int times = Anim.Loop, int frame = 0)
 			{
 				var cAnimator = entity.ComponentAnimator();
-				var cRenderer = entity.ComponentRenderer();
+				var cObject = entity.ComponentObject();
 
 				cAnimator.times = times;
 
@@ -20,7 +20,7 @@ namespace Roguelike
 
 				ref var sequence = ref cAnimator.map[animation_id];
 				cAnimator.frame          = frame == Anim.RandomFrame ? Rand.Get(0, sequence.sprites.Length) : frame;
-				cRenderer.source.sprite  = sequence[cAnimator.frame];
+				cObject.renderer.sprite  = sequence[cAnimator.frame];
 				cAnimator.animation_next = animation_id;
 				cAnimator.overriding     = true;
 				cAnimator.animation_time = times * sequence.sprites.Length * TimeBetweenFrames - cAnimator.frame * TimeBetweenFrames;

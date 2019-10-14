@@ -7,6 +7,9 @@ namespace Roguelike
 	public class ComponentObject
 	{
 		public Vector3 position;
+
+		public Collider2D collider;
+		public SpriteRenderer renderer;
 	}
 
 	#region HELPERS

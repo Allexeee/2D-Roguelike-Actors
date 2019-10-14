@@ -1,9 +1,10 @@
 // source: https://github.com/dimmpixeye/blog-ru/issues/2
+
 using Pixeye.Actors;
 
 namespace Roguelike
 {
-	sealed class ProcessorAnimator : Processor<ComponentAnimator, ComponentRenderer>, ITick
+	sealed class ProcessorAnimator : Processor<ComponentAnimator, ComponentObject>, ITick
 	{
 		float time;
 
@@ -23,7 +24,7 @@ namespace Roguelike
 			foreach (ent entity in source)
 			{
 				var cAnimator = entity.ComponentAnimator();
-				var cRenderer = entity.ComponentRenderer();
+				var cObject   = entity.ComponentObject();
 
 				if (cAnimator.pause) continue;
 
@@ -43,9 +44,8 @@ namespace Roguelike
 
 					cAnimator.frame = 0;
 				}
-
-
-				cRenderer.source.sprite = sequence.sprites[cAnimator.frame++];
+				
+				cObject.renderer.sprite = sequence.sprites[cAnimator.frame++];
 			}
 		}
 	}

@@ -6,22 +6,22 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	sealed class ProcessorCollider : Processor<ComponentCollider>
+	sealed class ProcessorCollider : Processor<ComponentObject>
 	{
 		public override void HandleEvents()
 		{
 			foreach (ent entity in source.added)
 			{
-				var cCollider = entity.ComponentCollider();
-
-				Phys.buffer.Insert(entity, cCollider.collider.GetHashCode());
+				var cObject = entity.ComponentObject();
+				
+				Phys.buffer.Insert(entity, cObject.collider.GetHashCode());
 			}
 
 			foreach (ent entity in source.removed)
 			{
-				var cCollider = entity.ComponentCollider();
+				var cObject = entity.ComponentObject();
 
-				Phys.buffer.Remove(cCollider.collider.GetHashCode());
+				Phys.buffer.Remove(cObject.collider.GetHashCode());
 			}
 		}
 	}

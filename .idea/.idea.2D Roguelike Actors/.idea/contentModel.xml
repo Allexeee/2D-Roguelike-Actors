@@ -61,13 +61,10 @@
               <e p="Tag.cs" t="Include" />
             </e>
             <e p="ComponentAnimator.cs" t="Include" />
-            <e p="ComponentCollider.cs" t="Include" />
             <e p="ComponentEnemy.cs" t="Include" />
             <e p="ComponentHealth.cs" t="Include" />
-            <e p="ComponentMove.cs" t="Include" />
             <e p="ComponentObject.cs" t="Include" />
             <e p="ComponentPlayer.cs" t="Include" />
-            <e p="ComponentRenderer.cs" t="Include" />
             <e p="ComponentTurnEnd.cs" t="Include" />
             <e p="PlugConsole" t="Include">
               <e p="CommandsConsole.cs" t="Include" />

@@ -21,18 +21,22 @@ namespace Roguelike
 				var dir    = direction.Random();
 				var target = dir + new Vector2(cObject.position.x, cObject.position.y);
 
-				if (!Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity))
-				{
-					if (!withEntity.exist)
-						Game.MoveTo(entity, target);
-				}
-				else if (withEntity.exist && withEntity.Get(out ComponentPlayer cPlayer, out ComponentHealth cHealth))
-				{
-					Debug.Log("Attack!");
-					cHealth.count -= 100;
-				}
+				var hasSolidColliderInPoint = Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity);
 
 				entity.Remove<ComponentTurnEnd>();
+
+				if (!hasSolidColliderInPoint && !withEntity.exist)
+				{
+					Game.MoveTo(entity, target);
+				}
+				else if (withEntity.Get(out ComponentPlayer cPlayer))
+				{
+					ProcessorSignals.Send(new SignalChangeHealth
+					{
+						target = withEntity,
+						count  = -100
+					});
+				}
 			}
 		}
 

@@ -2,7 +2,6 @@
 // Contacts : aleks - ask@pixeye.games
 
 using Pixeye.Actors;
-using UnityEngine;
 
 namespace Roguelike
 {
@@ -10,15 +9,15 @@ namespace Roguelike
 	{
 		public void HandleSignal(in SignalChangeHealth arg)
 		{
-			var entity    = arg.target;
-			var cHealth   = entity.ComponentHealth();
-			var cRenderer = entity.ComponentRenderer();
+			var entity  = arg.target;
+			var cHealth = entity.ComponentHealth();
+			var cObject = entity.ComponentObject();
 
 			var health = cHealth.count += arg.count;
 
 			if (entity.Has(Tag.Wall))
 			{
-				cRenderer.source.sprite = Database.RuinedWall.Random();
+				cObject.renderer.sprite = Database.RuinedWalls.RandomExcept(cObject.renderer.sprite);
 				if (health <= 0)
 					entity.Release();
 			}
