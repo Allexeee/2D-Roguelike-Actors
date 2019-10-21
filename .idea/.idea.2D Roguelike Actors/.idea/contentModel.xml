@@ -43,11 +43,13 @@
         <e p="Source" t="Include">
           <e p="FactoryBoard.cs" t="Include" />
           <e p="Runtime" t="Include">
+            <e p="ActorEnemy.cs" t="Include" />
             <e p="Common" t="Include">
               <e p="Anim.cs" t="Include" />
               <e p="AnimatorGuide.cs" t="Include" />
               <e p="BufferSortedEntities.cs" t="Include" />
               <e p="Database.cs" t="Include" />
+              <e p="Database.Units.cs" t="Include" />
               <e p="Game.Create.cs" t="Include" />
               <e p="Game.cs" t="Include" />
               <e p="Game.Draw.cs" t="Include" />
@@ -66,6 +68,7 @@
             <e p="ComponentObject.cs" t="Include" />
             <e p="ComponentPlayer.cs" t="Include" />
             <e p="ComponentTurnEnd.cs" t="Include" />
+            <e p="DataEnemy.cs" t="Include" />
             <e p="PlugConsole" t="Include">
               <e p="CommandsConsole.cs" t="Include" />
               <e p="CommandsGame.cs" t="Include" />

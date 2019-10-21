@@ -15,5 +15,7 @@ namespace Roguelike
 		public const int Exit = 100;
 		[TagField]
 		public const int Wall = 101;
+		[TagField]
+		public const int Food = 102;
 	}
 }

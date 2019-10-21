@@ -4,6 +4,7 @@
     <attachedFolders />
     <explicitIncludes>
       <Path>Library/PackageCache/com.pixeye.ecs@cba46fa02a1d6328c3387630ca7e096d25fede64</Path>
+      <Path>Library/PackageCache/com.pixeye.ecsdb@41c78bb7b2f40db6f8537e65e9c394d27664d800</Path>
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.1</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.1.2</Path>

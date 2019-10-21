@@ -2,6 +2,8 @@
 // Contacts : aleks - ask@pixeye.games
 
 using Pixeye.Actors;
+using TMPro;
+using UnityEngine;
 
 namespace Roguelike
 {
@@ -20,6 +22,24 @@ namespace Roguelike
 				cObject.renderer.sprite = Database.RuinedWalls.RandomExcept(cObject.renderer.sprite);
 				if (health <= 0)
 					entity.Release();
+			}
+
+			else if (entity.Has(Tag.Food))
+			{
+				entity.Release();
+			}
+
+			else if (entity.Has<ComponentPlayer>())
+			{
+				if (health <= 0)
+				{
+					cHealth.count = 0;
+					entity.Remove<ComponentPlayer>();
+
+					var goText = GameObject.Find("UI").transform.GetChild(1);
+					goText.GetChild(1).GetComponent<TMP_Text>().text = $"Days: {Game.DataLocal.level}";
+					goText.gameObject.SetActive(true);
+				}
 			}
 		}
 	}

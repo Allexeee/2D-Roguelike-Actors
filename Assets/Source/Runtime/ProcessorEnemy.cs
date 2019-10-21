@@ -17,6 +17,7 @@ namespace Roguelike
 			foreach (ent entity in source)
 			{
 				var cObject = entity.ComponentObject();
+				var cEnemy = entity.ComponentEnemy();
 
 				var dir    = direction.Random();
 				var target = dir + new Vector2(cObject.position.x, cObject.position.y);
@@ -29,12 +30,12 @@ namespace Roguelike
 				{
 					Game.MoveTo(entity, target);
 				}
-				else if (withEntity.Get(out ComponentPlayer cPlayer))
+				else if (withEntity.Has<ComponentPlayer>())
 				{
 					ProcessorSignals.Send(new SignalChangeHealth
 					{
 						target = withEntity,
-						count  = -100
+						count  = -cEnemy.DataEnemy(entity).damage
 					});
 				}
 			}

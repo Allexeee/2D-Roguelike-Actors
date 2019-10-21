@@ -8,19 +8,19 @@ namespace Roguelike
 		public static void Exit(in ent entity)
 		{
 			entity.Set(Tag.Exit);
-			var cObject = entity.Set<ComponentObject>();
 			
+			entity.Set<ComponentObject>();
 			entity.InitComponentObject();
-
 		}
 
 		public static void Food(in ent entity)
 		{
-			var cHealth = entity.Set<ComponentHealth>();
-			var cObject = entity.Set<ComponentObject>();
+			entity.Set(Tag.Food);
 			
+			entity.Set<ComponentObject>();
 			entity.InitComponentObject();
-
+			
+			var cHealth = entity.Set<ComponentHealth>();
 
 			cHealth.count = 5;
 		}
@@ -29,12 +29,10 @@ namespace Roguelike
 		{
 			entity.Set(Tag.Wall);
 
-			var cHealth = entity.Set<ComponentHealth>();
-
-			var cObject = entity.Set<ComponentObject>();
-			
+			entity.Set<ComponentObject>();
 			entity.InitComponentObject();
-
+			
+			var cHealth = entity.Set<ComponentHealth>();
 
 			cHealth.count = 5;
 		}

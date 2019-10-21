@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Roguelike
 {
+	[System.Serializable]
 	public class ComponentEnemy
 	{
-		
+		public DataEnemy DataEnemy(in ent entity) => DBHelper.source[entity.id].nodes[Data.Indexer<DataEnemy>.ID] as DataEnemy;
 	}
 
 	#region HELPERS

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	public class Database
+	public partial class Database
 	{
 		//===============================//
 		// Спрайты
@@ -20,8 +20,7 @@ namespace Roguelike
 		//===============================//
 
 		public static Sequences Player;
-		public static Sequences Enemy1;
-		public static Sequences Enemy2;
+		public static Sequences[] Enemies;
 
 		[RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
 		static void Setup()
@@ -37,9 +36,12 @@ namespace Roguelike
 			Walls       = atlas.Slice("Wall_0", 8);
 			Foods       = atlas.Slice("Food_0", 2);
 
+			Units.Load();
+
 			LoadPlayer();
+			Enemies = new Sequences[2];
+			LoadEnemy0();
 			LoadEnemy1();
-			LoadEnemy2();
 
 			//===============================//
 			// Methods
@@ -61,9 +63,9 @@ namespace Roguelike
 				});
 			}
 
-			void LoadEnemy1()
+			void LoadEnemy0()
 			{
-				sequences = Enemy1 = new Sequences();
+				sequences = Enemies[0] = new Sequences();
 
 				sequences.Add(Anim.Idle, new Sequence
 				{
@@ -77,9 +79,9 @@ namespace Roguelike
 				});
 			}
 
-			void LoadEnemy2()
+			void LoadEnemy1()
 			{
-				sequences = Enemy2 = new Sequences();
+				sequences = Enemies[1] = new Sequences();
 
 				sequences.Add(Anim.Idle, new Sequence
 				{

@@ -41,8 +41,9 @@ namespace Roguelike
 					// Еда
 					else if (withEntity.Get(out ComponentHealth cHealth_with))
 					{
-						cHealth.count += cHealth_with.count;
-						withEntity.Release();
+						Game.ChangeHealth(entity, cHealth_with.count);
+						Game.ChangeHealth(withEntity, -cHealth_with.count);
+//						withEntity.Release();
 					}
 				}
 			}
@@ -50,14 +51,10 @@ namespace Roguelike
 			else
 			{
 				Game.Draw.SetAnimation(entity, Anim.Attack, Anim.Once);
-				ProcessorSignals.Send(new SignalChangeHealth
-				{
-					target = withEntity,
-					count  = -1
-				});
+				Game.ChangeHealth(withEntity, -1);
 			}
 			
-			cHealth.count -= 1;
+			Game.ChangeHealth(entity, -1);
 			entity.Remove<ComponentTurnEnd>();
 
 //			if (!Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity))

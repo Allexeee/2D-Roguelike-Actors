@@ -6,7 +6,8 @@ namespace Roguelike
 	sealed class Prefab
 	{
 		public static GameObject Player = Box.Get<GameObject>("Prefabs/Obj Player");
-		public static GameObject Enemy = Box.Get<GameObject>("Prefabs/Obj Enemy");
+		public static GameObject[] Enemies = Box.LoadAll<GameObject>("Prefabs/Obj Enemy", 2);
+		public static GameObject Enemy = Box.Get<GameObject>("Prefabs/Obj Enemy 0");
 
 		// Level
 		public static GameObject Exit = Box.Get<GameObject>("Prefabs/Obj Exit");
