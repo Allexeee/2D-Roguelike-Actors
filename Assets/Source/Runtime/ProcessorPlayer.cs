@@ -43,7 +43,6 @@ namespace Roguelike
 					{
 						Game.ChangeHealth(entity, cHealth_with.count);
 						Game.ChangeHealth(withEntity, -cHealth_with.count);
-//						withEntity.Release();
 					}
 				}
 			}

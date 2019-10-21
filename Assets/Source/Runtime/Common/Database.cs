@@ -61,6 +61,12 @@ namespace Roguelike
 					sprites        = atlas.Slice(src => src.name.Equals("Player_Chop_0"), 2, 2),
 					animation_next = Anim.Idle
 				});
+				
+				sequences.Add(Anim.Hit, new Sequence
+				{
+					sprites        = atlas.Slice(src => src.name.Equals("Player_Hit_0"), 2, 2),
+					animation_next = Anim.Idle
+				});
 			}
 
 			void LoadEnemy0()

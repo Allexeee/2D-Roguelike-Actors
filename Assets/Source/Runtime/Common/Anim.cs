@@ -10,5 +10,6 @@ namespace Roguelike
 		public const int None = 0;
 		public const int Idle = 1;
 		public const int Attack = 2;
+		public const int Hit = 3;
 	}
 }

@@ -142,10 +142,10 @@ TextureImporter:
     second: Enemy2_Attack_1
   - first:
       213: 21300092
-    second: Scavengers_SpriteSheet_46
+    second: Player_Hit_0
   - first:
       213: 21300094
-    second: Scavengers_SpriteSheet_47
+    second: Player_Hit_1
   - first:
       213: 21300096
     second: RuinedWall_0
@@ -1208,7 +1208,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_46
+      name: Player_Hit_0
       rect:
         serializedVersion: 2
         x: 192
@@ -1229,7 +1229,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Scavengers_SpriteSheet_47
+      name: Player_Hit_1
       rect:
         serializedVersion: 2
         x: 224

@@ -32,11 +32,8 @@ namespace Roguelike
 				}
 				else if (withEntity.Has<ComponentPlayer>())
 				{
-					ProcessorSignals.Send(new SignalChangeHealth
-					{
-						target = withEntity,
-						count  = -cEnemy.DataEnemy(entity).damage
-					});
+					Game.Draw.SetAnimation(entity, Anim.Hit);
+					Game.ChangeHealth(withEntity, -cEnemy.DataEnemy(entity).damage);
 				}
 			}
 		}
