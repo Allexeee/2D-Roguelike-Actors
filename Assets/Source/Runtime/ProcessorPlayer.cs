@@ -1,5 +1,5 @@
 //  Project : 2D Roguelike Actors
-// Contacts : aleks - ask@pixeye.games
+// Contacts : @Alexeee#8796 - https://discord.gg/zAJn9SX
 
 using Pixeye.Actors;
 using UnityEngine;
@@ -55,39 +55,6 @@ namespace Roguelike
 			
 			Game.ChangeHealth(entity, -1);
 			entity.Remove<ComponentTurnEnd>();
-
-//			if (!Phys.HasSolidColliderInPoint(target, 1 << 10, out ent withEntity))
-//			{
-//				Game.MoveTo(entity, target);
-//				entity.Remove<ComponentTurnEnd>();
-//				Game.Draw.SetAnimation(entity, Anim.Idle);
-//
-//				if (withEntity.exist)
-//				{
-//					if (withEntity.Has(Tag.Exit))
-//						Game.NextLevel(entity);
-//					else if (withEntity.Get(out ComponentHealth cHealth_with))
-//					{
-//						cHealth.count += cHealth_with.count;
-//						withEntity.Release();
-//					}
-//				}
-//				else
-//					cHealth.count--;
-//			}
-//			else
-//			{
-//				if (withEntity.Get(out ComponentHealth cHealth_with))
-//				{
-//					Game.Draw.SetAnimation(entity, Anim.Attack, Anim.Once);
-//					ProcessorSignals.Send(new SignalChangeHealth
-//					{
-//						target = withEntity,
-//						count  = -1
-//					});
-//					entity.Remove<ComponentTurnEnd>();
-//				}
-//			}
 		}
 
 		public override void HandleEvents()

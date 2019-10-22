@@ -1,3 +1,6 @@
+//  Project : 2D Roguelike Actors
+// Contacts : @Alexeee#8796 - https://discord.gg/zAJn9SX
+
 // source: https://github.com/dimmpixeye/blog-ru/issues/2
 
 using Pixeye.Actors;

@@ -41,7 +41,6 @@
           </e>
         </e>
         <e p="Source" t="Include">
-          <e p="FactoryBoard.cs" t="Include" />
           <e p="Runtime" t="Include">
             <e p="ActorEnemy.cs" t="Include" />
             <e p="Common" t="Include">

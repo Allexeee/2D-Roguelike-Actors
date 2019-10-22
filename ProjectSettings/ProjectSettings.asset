@@ -640,10 +640,10 @@ PlayerSettings:
   facebookXfbml: 0
   facebookFrictionlessRequests: 1
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: 4c7632c3-c5b3-4d91-9f71-77c2febfdcd8
   framebufferDepthMemorylessMode: 0
-  projectName: Template_2D
-  organizationId: 
+  projectName: 2D Roguelike Actors
+  organizationId: alexeee
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

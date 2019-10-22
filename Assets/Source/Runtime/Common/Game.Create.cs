@@ -1,3 +1,6 @@
+//  Project : 2D Roguelike Actors
+// Contacts : @Alexeee#8796 - https://discord.gg/zAJn9SX
+
 using System.Collections.Generic;
 using Pixeye.Actors;
 using TMPro;
@@ -36,11 +39,11 @@ namespace Roguelike
 					{
 						if (x == 0 || x == columns || y == 0 || y == rows)
 						{
-							Obj.Spawn(Pool.Entities, Prefab.OuterWalls[Random.Range(0, Prefab.OuterWalls.Length)], boardHolder, new Vector3(x, y, 0f));
+							Obj.Spawn(Pool.Entities, Prefab.OuterWalls.Random(), boardHolder, new Vector3(x, y, 0f));
 						}
 						else
 						{
-							Obj.Spawn(Pool.Entities, Prefab.Floors[Random.Range(0, Prefab.Floors.Length)], boardHolder, new Vector3(x, y, 0f));
+							Obj.Spawn(Pool.Entities, Prefab.Floors.Random(), boardHolder, new Vector3(x, y, 0f));
 
 							if (!(x == 1 || x == columns - 1 || y == 1 || y == rows - 1))
 								allPos.Add(new Vector2(x, y));
@@ -55,8 +58,7 @@ namespace Roguelike
 				CreateEntityAtRandom(Prefab.Wall, Model.Wall, ref Database.Walls, 5, 10);
 
 				int enemyCount = (int) Mathf.Log(DataLocal.level, 2f);
-//				CreateEntityAtRandom1(ref Model.Enemies, enemyCount, enemyCount);
-				CreateEntityAtRandom2(Prefab.Enemies, enemyCount, enemyCount);
+				CreateActorAtRandom(Prefab.Enemies, enemyCount, enemyCount);
 
 				CreateEntityAtRandom(Prefab.Food, Model.Food, ref Database.Foods, 2, 5);
 
@@ -77,7 +79,7 @@ namespace Roguelike
 					}
 				}
 
-				void CreateEntityAtRandom2(GameObject[] go, int minimum, int maximum)
+				void CreateActorAtRandom(GameObject[] go, int minimum, int maximum)
 				{
 					int objectCount = Rand.Get(minimum, maximum + 1);
 
@@ -86,20 +88,7 @@ namespace Roguelike
 						var randomPosition = allPos.Random();
 						allPos.Remove(randomPosition);
 
-						var entity = Actor.Create(go.Random(), randomPosition, true).entity;
-					}
-				}
-
-				void CreateEntityAtRandom1(ref ModelComposer[] tileArray, int minimum, int maximum)
-				{
-					int objectCount = Rand.Get(minimum, maximum + 1);
-
-					for (int i = 0; i < objectCount; i++)
-					{
-						var randomPosition = allPos.Random();
-						allPos.Remove(randomPosition);
-
-						Entity.Create(Prefab.Enemy, tileArray.Random(), randomPosition, true);
+						Actor.Create(go.Random(), randomPosition, true);
 					}
 				}
 			}

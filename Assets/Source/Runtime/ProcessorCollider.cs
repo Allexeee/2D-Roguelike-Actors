@@ -1,8 +1,7 @@
 //  Project : 2D Roguelike Actors
-// Contacts : aleks - ask@pixeye.games
+// Contacts : @Alexeee#8796 - https://discord.gg/zAJn9SX
 
 using Pixeye.Actors;
-using UnityEngine;
 
 namespace Roguelike
 {
