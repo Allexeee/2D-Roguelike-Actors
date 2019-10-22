@@ -32,7 +32,7 @@ namespace Roguelike
 				}
 				else if (withEntity.Has<ComponentPlayer>())
 				{
-					Game.Draw.SetAnimation(entity, Anim.Hit);
+					Game.Draw.SetAnimation(withEntity, Anim.Hit, Anim.Once);
 					Game.ChangeHealth(withEntity, -cEnemy.DataEnemy(entity).damage);
 				}
 			}

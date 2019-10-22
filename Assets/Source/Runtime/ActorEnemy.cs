@@ -24,6 +24,7 @@ namespace Roguelike
 			cAnimator.map            = Database.Enemies[type];
 			cAnimator.guide          = AnimatorGuide.Default;
 			cAnimator.animation_next = Anim.Idle;
+			cAnimator.frame          = Anim.RandomFrame;
 		}
 	}
 
