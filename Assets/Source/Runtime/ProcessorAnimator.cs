@@ -11,6 +11,20 @@ namespace Roguelike
 	{
 		float time;
 
+		public override void HandleEvents()
+		{
+			foreach (ent entity in source.added)
+			{
+				var cAnimator = entity.ComponentAnimator();
+
+				if (cAnimator.frame == Anim.RandomFrame)
+				{
+					ref var sequence = ref cAnimator.map[cAnimator.animation_next];
+					cAnimator.frame = Rand.Get(0, sequence.sprites.Length);
+				}
+			}
+		}
+
 		public void Tick(float delta)
 		{
 			// запускаем наш "mecanim"
@@ -47,7 +61,7 @@ namespace Roguelike
 
 					cAnimator.frame = 0;
 				}
-				
+
 				cObject.renderer.sprite = sequence.sprites[cAnimator.frame++];
 			}
 		}
