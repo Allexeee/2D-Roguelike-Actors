@@ -1,78 +1,40 @@
-//Framework version:24.04.2019
-using System;
+//  Project : 2D Roguelike Actors
+// Contacts : @Alexeee#8796 - https://discord.gg/zAJn9SX
+
+using Pixeye.Actors;
+using Pixeye.Source;
 using UnityEngine;
-using Pixeye;
-using Pixeye.Framework;
 
-public static class Phys
+namespace Roguelike
 {
-    private static PhysCheckHit PhysCheckHit = new PhysCheckHit();
+	public static class Phys
+	{
+		public static readonly BufferSortedEntities buffer = new BufferSortedEntities(256);
 
-    public static PhysCheckHit CheckHit(this RaycastHit2D hit)
-    {
-        PhysCheckHit.CheckHit(hit);
-        return PhysCheckHit;
-    }
+		public static readonly RaycastHit2D[] hits = new RaycastHit2D[64];
+		public static readonly Collider2D[] colliders = new Collider2D[64];
 
-    public static ent GetEntityInParent(this RaycastHit2D hit)
-    {
-        return hit.collider.GetComponentInParent<Actor>().entity;
-    }
-}
+		public static int OverlapPoint2D(Vector2 pos, int mask = 1 << 0, float min = float.NegativeInfinity, float max = float.PositiveInfinity)
+		{
+			return Physics2D.OverlapPointNonAlloc(pos, colliders, mask, min, max);
+		}
 
-public class PhysCheckHit
-{
-    public bool IsCollider;
-    public bool IsTrigger;
-    public bool IsActor;
-    public ent Entity = -1;
+		public static bool HasSolidColliderInPoint(Vector2 pos, int mask, out ent entity)
+		{
+			entity = default;
+			var hit = OverlapPoint2D(pos, mask);
+			if (hit > 0)
+			{
+				var index = HelperArray.BinarySearch(ref buffer.pointers, colliders[0].GetHashCode(), 0, buffer.length);
+				if (index != -1)
+					entity = buffer.entities[index];
+				if (colliders[0].isTrigger)
+					return false;
 
-    public Collider2D Collider2D;
+				return true;
+			}
 
-    public void CheckHit(RaycastHit2D hit)
-    {
-        IsCollider = default(bool);
-        IsTrigger = default(bool);
-        IsActor = default(bool);
-        Entity = -1;
-        Collider2D = hit.collider;
-        
-        if (Collider2D)
-        {
-            IsCollider = true;
-            IsTrigger = Collider2D.isTrigger;
-            var act = Collider2D.GetComponentInParent<Actor>();
-            if (act != null)
-            {
-                IsActor = true;
-                Entity = act.GetEntity();
-            }
-        }
-    }
-    // public void CheckHit(RaycastHit2D hit, out Collider2D collider)
-    // {
-    //     collider = hit.collider;
-    //     if (hit.collider) IsCollider = true;
-
-    //     var act = hit.collider.GetComponentInParent<Actor>();
-    //     if (act != null)
-    //     {
-    //         IsActor = true;
-    //         Entity = act.GetEntity();
-    //     }
-    // }
-
-    // public void CheckHit(this RaycastHit2D hit, out Collider2D collider, out Actor actor)
-    // {
-    //     collider = hit.collider;
-    //     if (hit.collider) IsCollider = true;
-
-    //     var act = hit.collider.GetComponentInParent<Actor>();
-    //     actor = act;
-    //     if (act != null)
-    //     {
-    //         IsActor = true;
-    //         Entity = act.GetEntity();
-    //     }
-    // }
+			return false;
+		}
+	}
 }

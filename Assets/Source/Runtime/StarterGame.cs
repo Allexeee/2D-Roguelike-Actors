@@ -1,23 +1,35 @@
-﻿using System.Collections;
+﻿//  Project : 2D Roguelike Actors
+// Contacts : @Alexeee#8796 - https://discord.gg/zAJn9SX
+
 using System.Collections.Generic;
-using Pixeye;
-using Pixeye.Framework;
+using Pixeye.Actors;
 using UnityEngine;
 
-public class StarterGame : MonoBehaviour
+namespace Roguelike
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        var e = new ent(10);
-        e.RemoveAll(Tag.None);
-      
-      
-    }
+	// Welcome to the ACTORS.
+	// Use Tools->Actors->Update Actors to update version from github if you add Actors from manifest file.
+	// Use Tools->Actors->Set Release/Set Debug to toggle between release/debug versions of your project.
+	// Press ~ to open the game console. Note that you need to install textmesh pro first.
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	public class StarterGame : Starter
+	{
+		protected override void Setup()
+		{
+			Game.Create.Board();
+
+			Toolbox.Add<ProcessorCollider>();
+			Toolbox.Add<ProcessorAnimator>();
+			Toolbox.Add<ProcessorHealth>();
+
+			Toolbox.Add<ProcessorPlayer>();
+			Toolbox.Add<ProcessorEnemy>();
+		}
+
+		protected override void Dispose()
+		{
+		}
+
+
+	}
 }

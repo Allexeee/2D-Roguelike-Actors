@@ -1,12 +1,18 @@
-//Framework version:27.04.2019
-using System;
-using UnityEngine;
-using Pixeye;
-using Pixeye.Framework;
+//  Project : 2D Roguelike Actors
+// Contacts : @Alexeee#8796 - https://discord.gg/zAJn9SX
 
-public static class Anim
+// source: https://github.com/dimmpixeye/blog-ru/issues/2
+namespace Roguelike
 {
-    public static readonly int PlayerIdle = "PlayerIdle".GetHashCode();
-    public static readonly int PlayerHit = "PlayerHit".GetHashCode();
-    public static readonly int PlayerChop = "PlayerChop".GetHashCode();
+	public struct Anim
+	{
+		public const int RandomFrame = -1;
+		public const int Once = 1;
+		public const int Loop = int.MaxValue;
+		
+		public const int None = 0;
+		public const int Idle = 1;
+		public const int Attack = 2;
+		public const int Hit = 3;
+	}
 }
