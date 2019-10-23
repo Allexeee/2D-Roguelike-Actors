@@ -547,6 +547,7 @@ PlayerSettings:
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
     1: ACTORS_TAGS_6;ACTORS_TAGS_CHECKS;ACTORS_DEBUG
+    13: ACTORS_TAGS_6;ACTORS_DEBUG
   platformArchitecture: {}
   scriptingBackend:
     Standalone: 1

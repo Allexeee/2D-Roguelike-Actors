@@ -226,7 +226,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/Common/Sequence.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="430">
@@ -242,6 +242,22 @@
                 <marker date="1571760205913" expanded="true" signature="552:621" ph="{...}" />
                 <marker date="1571760205913" expanded="true" signature="796:996" ph="{...}" />
                 <marker date="1571760205913" expanded="true" signature="834:928" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/ActorEnemy.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <folding>
+                <marker date="1571755351640" expanded="true" signature="0:90" ph="/* Project : 2D Roguelike Actors ... */" />
+                <marker date="1571755351640" expanded="true" signature="133:820" ph="{...}" />
+                <marker date="1571755351640" expanded="true" signature="168:697" ph="{...}" />
+                <marker date="1571755351640" expanded="true" signature="290:694" ph="{...}" />
+                <marker date="1571755351640" expanded="true" signature="729:818" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -370,7 +386,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="699" />
@@ -422,6 +438,12 @@
               <item name="" type="e068e287:UnityExplorerRootNode" />
               <item name="Packages" type="4e2708dd:PackagesRoot" />
               <item name="Read only" type="7f48d1bd:ReadOnlyPackagesRoot" />
+            </path>
+            <path>
+              <item name="" type="e068e287:UnityExplorerRootNode" />
+              <item name="Packages" type="4e2708dd:PackagesRoot" />
+              <item name="Read only" type="7f48d1bd:ReadOnlyPackagesRoot" />
+              <item name="com.unity.ext.nunit@1.0.0" type="a82a7030:PackageNode" />
             </path>
           </expand>
           <select />
@@ -487,7 +509,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="96153000" />
+    <option name="totallyTimeSpent" value="96865000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -499,8 +521,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16983895" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -1189,20 +1210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/ActorEnemy.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <marker date="1571755351640" expanded="true" signature="0:90" ph="/* Project : 2D Roguelike Actors ... */" />
-            <marker date="1571755351640" expanded="true" signature="133:820" ph="{...}" />
-            <marker date="1571755351640" expanded="true" signature="168:697" ph="{...}" />
-            <marker date="1571755351640" expanded="true" signature="290:694" ph="{...}" />
-            <marker date="1571755351640" expanded="true" signature="729:818" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/ComponentAnimator.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1319,6 +1326,20 @@
             <marker date="1571760205913" expanded="true" signature="552:621" ph="{...}" />
             <marker date="1571760205913" expanded="true" signature="796:996" ph="{...}" />
             <marker date="1571760205913" expanded="true" signature="834:928" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Source/Runtime/ActorEnemy.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+          <folding>
+            <marker date="1571755351640" expanded="true" signature="0:90" ph="/* Project : 2D Roguelike Actors ... */" />
+            <marker date="1571755351640" expanded="true" signature="133:820" ph="{...}" />
+            <marker date="1571755351640" expanded="true" signature="168:697" ph="{...}" />
+            <marker date="1571755351640" expanded="true" signature="290:694" ph="{...}" />
+            <marker date="1571755351640" expanded="true" signature="729:818" ph="{...}" />
           </folding>
         </state>
       </provider>
