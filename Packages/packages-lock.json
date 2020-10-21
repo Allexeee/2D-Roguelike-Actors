@@ -1,18 +1,11 @@
 {
   "dependencies": {
     "com.pixeye.ecs": {
-      "version": "https://github.com/dimmpixeye/ecs.git",
+      "version": "https://github.com/PixeyeHQ/actors.unity.git",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "cba46fa02a1d6328c3387630ca7e096d25fede64"
-    },
-    "com.pixeye.ecsdb": {
-      "version": "https://github.com/dimmpixeye/ecs.database.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "41c78bb7b2f40db6f8537e65e9c394d27664d800"
+      "hash": "05f6b11dc90bd571ac1e1fea7f2891444b0efbe9"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

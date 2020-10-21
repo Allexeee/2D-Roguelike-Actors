@@ -27,18 +27,18 @@ namespace Roguelike
 		{
 			var cHealth = ePlayer.ComponentHealth();
 
-			ProcessorScene.To("Scene Game");
+			//ProcessorScene.To("Scene Game");
 			DataLocal.food = cHealth.count;
 			DataLocal.level++;
 		}
 
 		public static void ChangeHealth(in ent entity, int count)
 		{
-			ProcessorSignals.Send(new SignalChangeHealth
-			{
-				target = entity,
-				count  = count
-			});
+			// ProcessorSignals.Send(new SignalChangeHealth
+			// {
+			// 	target = entity,
+			// 	count  = count
+			// });
 		}
 	}
 

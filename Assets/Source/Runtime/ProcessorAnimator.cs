@@ -7,11 +7,13 @@ using Pixeye.Actors;
 
 namespace Roguelike
 {
-	sealed class ProcessorAnimator : Processor<ComponentAnimator, ComponentObject>, ITick
+	sealed class ProcessorAnimator : Processor, ITick
 	{
+		Group<ComponentAnimator, ComponentObject> source;
+		
 		float time;
 
-		public override void HandleEvents()
+		public override void HandleEcsEvents()
 		{
 			foreach (ent entity in source.added)
 			{
@@ -20,7 +22,7 @@ namespace Roguelike
 				if (cAnimator.frame == Anim.RandomFrame)
 				{
 					ref var sequence = ref cAnimator.map[cAnimator.animation_next];
-					cAnimator.frame = Rand.Get(0, sequence.sprites.Length);
+					cAnimator.frame = Random.Range(0, sequence.sprites.Length);
 				}
 			}
 		}

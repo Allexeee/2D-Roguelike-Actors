@@ -24,7 +24,7 @@ namespace Roguelike
 
 				ref var sequence = ref cAnimator.map[animation_id];
 
-				cAnimator.frame          = frame == Anim.RandomFrame ? Rand.Get(0, sequence.sprites.Length) : frame;
+				cAnimator.frame          = frame == Anim.RandomFrame ? Random.Range(0, sequence.sprites.Length) : frame;
 				cObject.renderer.sprite  = sequence[cAnimator.frame];
 				cAnimator.animation_next = animation_id;
 				cAnimator.overriding     = true;

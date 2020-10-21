@@ -6,8 +6,9 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	sealed class ProcessorEnemy : Processor<ComponentObject, ComponentEnemy, ComponentTurnEnd>, ITick
+	sealed class ProcessorEnemy : Processor, ITick
 	{
+		Group<ComponentObject, ComponentEnemy, ComponentTurnEnd> source;
 		Group<ComponentObject, ComponentPlayer> groupPlayers;
 
 		Vector2[] direction = new[] {Vector2.up, Vector2.down, Vector2.left, Vector2.right};
@@ -33,17 +34,17 @@ namespace Roguelike
 				else if (withEntity.Has<ComponentPlayer>())
 				{
 					Game.Draw.SetAnimation(withEntity, Anim.Hit, Anim.Once);
-					Game.ChangeHealth(withEntity, -cEnemy.DataEnemy(entity).damage);
+					Game.ChangeHealth(withEntity, -1);
 				}
 			}
 		}
 
-		public override void HandleEvents()
+		public override void HandleEcsEvents()
 		{
 			foreach (ent entity in source.removed)
 			{
 				if (source.length == 0)
-					groupPlayers[0].Add<ComponentTurnEnd>();
+					groupPlayers[0].Get<ComponentTurnEnd>();
 				break;
 			}
 		}

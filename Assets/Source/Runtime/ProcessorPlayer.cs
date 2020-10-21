@@ -6,8 +6,9 @@ using UnityEngine;
 
 namespace Roguelike
 {
-	sealed class ProcessorPlayer : Processor<ComponentObject, ComponentPlayer, ComponentTurnEnd>, ITick
+	sealed class ProcessorPlayer : Processor, ITick
 	{
+		Group<ComponentObject, ComponentPlayer, ComponentTurnEnd> source;
 		Group<ComponentObject, ComponentEnemy> groupEnemies;
 
 		public void Tick(float delta)
@@ -39,7 +40,7 @@ namespace Roguelike
 					if (withEntity.Has(Tag.Exit))
 						Game.NextLevel(entity);
 					// Еда
-					else if (withEntity.Get(out ComponentHealth cHealth_with))
+					else if (withEntity.TryGet(out ComponentHealth cHealth_with))
 					{
 						Game.ChangeHealth(entity, cHealth_with.count);
 						Game.ChangeHealth(withEntity, -cHealth_with.count);
@@ -57,16 +58,16 @@ namespace Roguelike
 			entity.Remove<ComponentTurnEnd>();
 		}
 
-		public override void HandleEvents()
+		public override void HandleEcsEvents()
 		{
 			foreach (ent entity in source.removed)
 			{
 				if (source.length == 0)
 					if (groupEnemies.length != 0)
 						foreach (ent entityEnemy in groupEnemies)
-							entityEnemy.Add<ComponentTurnEnd>();
+							entityEnemy.Get<ComponentTurnEnd>();
 					else
-						entity.Add<ComponentTurnEnd>();
+						entity.Get<ComponentTurnEnd>();
 
 				break;
 			}

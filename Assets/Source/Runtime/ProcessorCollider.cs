@@ -5,9 +5,11 @@ using Pixeye.Actors;
 
 namespace Roguelike
 {
-	sealed class ProcessorCollider : Processor<ComponentObject>
+	sealed class ProcessorCollider : Processor
 	{
-		public override void HandleEvents()
+		Group<ComponentObject> source;
+		
+		public override void HandleEcsEvents()
 		{
 			foreach (ent entity in source.added)
 			{

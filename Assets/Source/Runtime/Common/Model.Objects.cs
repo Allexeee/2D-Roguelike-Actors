@@ -5,9 +5,9 @@ using Pixeye.Actors;
 
 namespace Roguelike
 {
-	public partial class Model
+	public partial class Models
 	{
-		public static void Exit(in ent entity)
+		public static void Exit(ent entity)
 		{
 			entity.Set(Tag.Exit);
 			
@@ -15,7 +15,7 @@ namespace Roguelike
 			entity.InitComponentObject();
 		}
 
-		public static void Food(in ent entity)
+		public static void Food(ent entity)
 		{
 			entity.Set(Tag.Food);
 			
@@ -27,7 +27,7 @@ namespace Roguelike
 			cHealth.count = 5;
 		}
 
-		public static void Wall(in ent entity)
+		public static void Wall(ent entity)
 		{
 			entity.Set(Tag.Wall);
 
