@@ -16,7 +16,7 @@ namespace Roguelike
       Add<ProcessorPlayer>();
       Add<ProcessorEnemy>();
 
-      WaitFor(0.1f, () => Game.Create.Board(self));
+      Game.Create.Board();
     }
   }
 }

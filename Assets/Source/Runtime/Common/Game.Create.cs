@@ -28,7 +28,7 @@ namespace Roguelike
 				}
 			}
 
-			public static void Board(Layer layer, int columns = 10, int rows = 10)
+			public static void Board(int columns = 10, int rows = 10)
 			{
 				List<Vector2> allPos = new List<Vector2>(columns * rows);
 
@@ -40,11 +40,11 @@ namespace Roguelike
 					{
 						if (x == 0 || x == columns || y == 0 || y == rows)
 						{
-							layer.Obj.Create(Prefab.OuterWalls.Random(), boardHolder, new Vector3(x, y, 0f));
+							LayerGame.Obj.Create(Prefab.OuterWalls.Random(), boardHolder, new Vector3(x, y, 0f));
 						}
 						else
 						{
-							layer.Obj.Create(Prefab.Floors.Random(), boardHolder, new Vector3(x, y, 0f));
+							LayerGame.Obj.Create(Prefab.Floors.Random(), boardHolder, new Vector3(x, y, 0f));
 
 							if (!(x == 1 || x == columns - 1 || y == 1 || y == rows - 1))
 								allPos.Add(new Vector2(x, y));
