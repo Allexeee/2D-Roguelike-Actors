@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\aleks\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\aleks\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_2D-Roguelike-Actors.714024303.00" t="ExcludeRecursive" />
+    <e p="D:\GitHub\2D-Roguelike-Actors" t="IncludeRecursive">
+      <e p="2D-Roguelike-Actors.sln" t="IncludeFlat" />
+      <e p="Assets" t="Include">
+        <e p="Source" t="Include">
+          <e p="Runtime" t="Include">
+            <e p="ActorEnemy.cs" t="Include" />
+            <e p="Common" t="Include">
+              <e p="Anim.cs" t="Include" />
+              <e p="AnimatorGuide.cs" t="Include" />
+              <e p="BufferSortedEntities.cs" t="Include" />
+              <e p="Database.Animations.cs" t="Include" />
+              <e p="Database.Units.cs" t="Include" />
+              <e p="Game.Create.cs" t="Include" />
+              <e p="Game.cs" t="Include" />
+              <e p="Game.Draw.cs" t="Include" />
+              <e p="Game.Move.cs" t="Include" />
+              <e p="Model.Creature.cs" t="Include" />
+              <e p="Model.cs" t="Include" />
+              <e p="Model.Objects.cs" t="Include" />
+              <e p="Phys.cs" t="Include" />
+              <e p="Prefab.cs" t="Include" />
+              <e p="Sequence.cs" t="Include" />
+              <e p="Tag.cs" t="Include" />
+            </e>
+            <e p="ComponentAnimator.cs" t="Include" />
+            <e p="ComponentEnemy.cs" t="Include" />
+            <e p="ComponentHealth.cs" t="Include" />
+            <e p="ComponentObject.cs" t="Include" />
+            <e p="ComponentPlayer.cs" t="Include" />
+            <e p="ComponentTurnEnd.cs" t="Include" />
+            <e p="DataEnemy.cs" t="Include" />
+            <e p="PlugConsole" t="Include">
+              <e p="CommandsConsole.cs" t="Include" />
+              <e p="CommandsGame.cs" t="Include" />
+              <e p="ComponentConsole.cs" t="Include" />
+              <e p="PluggableConsole.cs" t="Include" />
+              <e p="ProcessorConsole.cs" t="Include" />
+              <e p="Resources" t="Include">
+                <e p="Shader Console Blur.shader" t="Include" />
+              </e>
+            </e>
+            <e p="ProcessorAnimator.cs" t="Include" />
+            <e p="ProcessorCollider.cs" t="Include" />
+            <e p="ProcessorEnemy.cs" t="Include" />
+            <e p="ProcessorHealth.cs" t="Include" />
+            <e p="ProcessorPlayer.cs" t="Include" />
+            <e p="SignalChangeHealth.cs" t="Include" />
+            <e p="StarterGame.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Pixeye.Source.csproj" t="IncludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
