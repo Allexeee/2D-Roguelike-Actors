@@ -18,5 +18,10 @@ namespace Roguelike
 
       Game.Create.Board();
     }
+
+    protected override void OnLayerDestroy()
+    {
+      Phys.buffer.length = 0;
+    }
   }
 }

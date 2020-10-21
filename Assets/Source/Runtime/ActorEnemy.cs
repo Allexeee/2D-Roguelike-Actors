@@ -13,7 +13,7 @@ namespace Roguelike
 
 		protected override void Setup()
 		{
-			entity.Set(Database.Units.Enemies[type]);
+			entity.Bind(Database.Units.Enemies[type]);
 
 			entity.Set<ComponentEnemy>();
 			entity.Set<ComponentObject>();

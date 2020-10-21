@@ -31,8 +31,8 @@ namespace Roguelike
 			public static void Board(int columns = 10, int rows = 10)
 			{
 				List<Vector2> allPos = new List<Vector2>(columns * rows);
-
-				var boardHolder = new GameObject("Board").transform;
+				
+				var boardHolder = LayerGame.Obj.Create("Prefabs/Obj Board");
 
 				for (int x = 0; x <= columns; x++)
 				{

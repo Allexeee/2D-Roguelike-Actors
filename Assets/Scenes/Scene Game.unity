@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 1499461061}
   - component: {fileID: 1499461062}
   m_Layer: 0
-  m_Name: Scene Setup
+  m_Name: Layer Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
