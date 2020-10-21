@@ -39,7 +39,7 @@ namespace Roguelike
 			Walls       = atlas.Slice("Wall_0", 8);
 			Foods       = atlas.Slice("Food_0", 2);
 
-			// Units.Load();
+			Units.Load();
 
 			LoadPlayer();
 			Enemies = new Sequences[2];

@@ -34,7 +34,7 @@ namespace Roguelike
 				else if (withEntity.Has<ComponentPlayer>())
 				{
 					Game.Draw.SetAnimation(withEntity, Anim.Hit, Anim.Once);
-					Game.ChangeHealth(withEntity, -1);
+					Game.ChangeHealth(withEntity, entity.DataEnemy().damage);
 				}
 			}
 		}
