@@ -30,7 +30,6 @@ namespace Roguelike
 			foreach (var id in disposed)
 			{
 				ref var component = ref components[id];
-				component.observer.Release();
 			}
 		}
 	}

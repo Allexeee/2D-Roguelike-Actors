@@ -35,6 +35,7 @@
             <e p="ComponentPlayer.cs" t="Include" />
             <e p="ComponentTurnEnd.cs" t="Include" />
             <e p="DataEnemy.cs" t="Include" />
+            <e p="LayerApp.cs" t="Include" />
             <e p="LayerGame.cs" t="Include" />
             <e p="ProcessorAnimator.cs" t="Include" />
             <e p="ProcessorCollider.cs" t="Include" />

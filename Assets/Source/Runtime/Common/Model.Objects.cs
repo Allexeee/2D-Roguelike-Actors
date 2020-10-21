@@ -11,7 +11,7 @@ namespace Roguelike
 		{
 			entity.Set(Tag.Exit);
 			
-			entity.Set<ComponentObject>();
+			entity.Get<ComponentObject>();
 			entity.InitComponentObject();
 		}
 
@@ -19,10 +19,10 @@ namespace Roguelike
 		{
 			entity.Set(Tag.Food);
 			
-			entity.Set<ComponentObject>();
+			entity.Get<ComponentObject>();
 			entity.InitComponentObject();
 			
-			var cHealth = entity.Set<ComponentHealth>();
+			var cHealth = entity.Get<ComponentHealth>();
 
 			cHealth.count = 5;
 		}
@@ -31,10 +31,10 @@ namespace Roguelike
 		{
 			entity.Set(Tag.Wall);
 
-			entity.Set<ComponentObject>();
+			entity.Get<ComponentObject>();
 			entity.InitComponentObject();
 			
-			var cHealth = entity.Set<ComponentHealth>();
+			var cHealth = entity.Get<ComponentHealth>();
 
 			cHealth.count = 5;
 		}
