@@ -6,6 +6,164 @@
     <e p="D:\GitHub\2D-Roguelike-Actors" t="IncludeRecursive">
       <e p="2D-Roguelike-Actors.sln" t="IncludeFlat" />
       <e p="Assets" t="Include">
+        <e p="Framework" t="Include">
+          <e p="Editor" t="Include">
+            <e p="Data" t="Include">
+              <e p="DataFramework.cs" t="Include" />
+            </e>
+            <e p="Drawers" t="Include">
+              <e p="DrawerEnumFlags.cs" t="Include" />
+              <e p="DrawerInfoBox.cs" t="Include" />
+              <e p="DrawerScene.cs" t="Include" />
+              <e p="StyleFramework.cs" t="Include" />
+            </e>
+            <e p="Helpers" t="Include">
+              <e p="FindMissingScriptsRecursively.cs" t="Include" />
+              <e p="HelperEditor.cs" t="Include" />
+              <e p="HelperObjectLoader.cs" t="Include" />
+              <e p="HelperReturnClick.cs" t="Include" />
+              <e p="HelperSerializedProps.cs" t="Include" />
+            </e>
+            <e p="Inspector" t="Include">
+              <e p="InspectorBlueprints.cs" t="Include" />
+              <e p="InspectorOverride.cs" t="Include" />
+              <e p="InspectorReordarable.cs" t="Include" />
+            </e>
+            <e p="SceneProcessors" t="Include">
+              <e p="PostHandleComponents.cs" t="Include" />
+              <e p="PostHandleDataObjects.cs" t="Include" />
+              <e p="PostHandleDatas.cs" t="Include" />
+              <e p="PostHandleFactories.cs" t="Include" />
+              <e p="PostHandleFrameworkPatch.cs" t="Include" />
+              <e p="PostHandlePools.cs" t="Include" />
+              <e p="PostHandleScenes.cs" t="Include" />
+              <e p="PostHandleSymbols.cs" t="Include" />
+              <e p="PostHandleTags.cs" t="Include" />
+            </e>
+            <e p="Templates" t="Include">
+              <e p="TmpComponent.txt" t="Include" />
+              <e p="TmpComponentStruct.txt" t="Include" />
+              <e p="TmpData.txt" t="Include" />
+              <e p="TmpDataTags.txt" t="Include" />
+              <e p="TmpFactory.txt" t="Include" />
+            </e>
+            <e p="Windows" t="Include">
+              <e p="EditorWindowFramework.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Runtime" t="Include">
+            <e p="ArrayLen.cs" t="Include" />
+            <e p="Attributes" t="Include">
+              <e p="AddedAttribute.cs" t="Include" />
+              <e p="BindAttribute.cs" t="Include" />
+              <e p="ButtonAttribute.cs" t="Include" />
+              <e p="EnumFlagAttribute.cs" t="Include" />
+              <e p="FoldoutGroupAttribute.cs" t="Include" />
+              <e p="Il2CppSetOptionAttribute.cs" t="Include" />
+              <e p="InfoBoxAttribute.cs" t="Include" />
+              <e p="ReadOnlyAttribute.cs" t="Include" />
+              <e p="ReorderableAttribute.cs" t="Include" />
+              <e p="RequireAttribute.cs" t="Include" />
+              <e p="TagFieldAttribute.cs" t="Include" />
+              <e p="TagFilterAttribute.cs" t="Include" />
+            </e>
+            <e p="Helpers" t="Include">
+              <e p="HelperArray.cs" t="Include" />
+              <e p="HelperDelegates.cs" t="Include" />
+              <e p="HelperEntity.cs" t="Include" />
+              <e p="HelperFramework.cs" t="Include" />
+              <e p="HelperThreads.cs" t="Include" />
+              <e p="Obj.cs" t="Include" />
+              <e p="Rand.cs" t="Include" />
+            </e>
+            <e p="HRProfile" t="Include">
+              <e p="HRProfile.cs" t="Include" />
+            </e>
+            <e p="Interfaces" t="Include">
+              <e p="IActor.cs" t="Include" />
+              <e p="IAwake.cs" t="Include" />
+              <e p="IBind.cs" t="Include" />
+              <e p="IKernel.cs" t="Include" />
+              <e p="IRandom.cs" t="Include" />
+              <e p="IReceive.cs" t="Include" />
+              <e p="IRequireStarter.cs" t="Include" />
+              <e p="ITick.cs" t="Include" />
+              <e p="ITickFixed.cs" t="Include" />
+              <e p="ITickLate.cs" t="Include" />
+            </e>
+            <e p="LibComponents" t="Include">
+              <e p="ComponentAddComponents.cs" t="Include" />
+              <e p="ComponentReleaseEntity.cs" t="Include" />
+              <e p="ComponentRemoveComponents.cs" t="Include" />
+            </e>
+            <e p="LibEcs" t="Include">
+              <e p="Buffer.cs" t="Include" />
+              <e p="CacheEntity.cs" t="Include" />
+              <e p="Composition.cs" t="Include" />
+              <e p="ent.cs" t="Include" />
+              <e p="Entity.cs" t="Include" />
+              <e p="Entity.Handle.Create.cs" t="Include" />
+              <e p="Framework.cs" t="Include" />
+              <e p="GroupCore.cs" t="Include" />
+              <e p="GroupManual.cs" t="Include" />
+            </e>
+            <e p="LibMath" t="Include">
+              <e p="float2.cs" t="Include" />
+              <e p="Math.cs" t="Include" />
+            </e>
+            <e p="LibMisc" t="Include">
+              <e p="CacheGroup.cs" t="Include" />
+              <e p="debug.cs" t="Include" />
+              <e p="ents.cs" t="Include" />
+              <e p="FastComparable.cs" t="Include" />
+              <e p="FastString.cs" t="Include" />
+              <e p="Hashcode.cs" t="Include" />
+              <e p="Pluggable.cs" t="Include" />
+            </e>
+            <e p="LibMono" t="Include">
+              <e p="Actor.cs" t="Include" />
+              <e p="MonoCached.cs" t="Include" />
+              <e p="Storage.cs" t="Include" />
+            </e>
+            <e p="LibPools" t="Include">
+              <e p="MemPool.cs" t="Include" />
+              <e p="Pool.cs" t="Include" />
+              <e p="PoolContainer.cs" t="Include" />
+              <e p="UnmanagedMemory.cs" t="Include" />
+            </e>
+            <e p="LibProcessors" t="Include">
+              <e p="Box.cs" t="Include" />
+              <e p="coroutine.cs" t="Include" />
+              <e p="Processor.cs" t="Include" />
+              <e p="ProcessorGroups.cs" t="Include" />
+              <e p="ProcessorTimer.cs" t="Include" />
+              <e p="ProcessorUpdate.cs" t="Include" />
+              <e p="ProcessorUpdateGroups.cs" t="Include" />
+            </e>
+            <e p="LibSingleton" t="Include">
+              <e p="SceneCoroutine.cs" t="Include" />
+              <e p="Singleton.cs" t="Include" />
+              <e p="Toolbox.cs" t="Include" />
+            </e>
+            <e p="LibStarter" t="Include">
+              <e p="SceneReference.cs" t="Include" />
+              <e p="Starter.cs" t="Include" />
+              <e p="StarterKernel.cs" t="Include" />
+            </e>
+            <e p="LibTime" t="Include">
+              <e p="Time.cs" t="Include" />
+              <e p="Timer.cs" t="Include" />
+            </e>
+            <e p="Settings" t="Include">
+              <e p="SettingsEngine.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="LibLinker" t="Include">
+          <e p="Editor" t="Include">
+            <e p="Symlinks.cs" t="Include" />
+          </e>
+        </e>
         <e p="Source" t="Include">
           <e p="Runtime" t="Include">
             <e p="ActorEnemy.cs" t="Include" />
@@ -46,8 +204,11 @@
           </e>
         </e>
       </e>
+      <e p="Homebrew.Framework.Linker.Editor.csproj" t="IncludeRecursive" />
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
+      <e p="Pixeye.Actors.csproj" t="IncludeRecursive" />
+      <e p="Pixeye.Actors.Editor.csproj" t="IncludeRecursive" />
       <e p="Pixeye.Source.csproj" t="IncludeRecursive" />
       <e p="Temp\bin" t="ExcludeRecursive" />
     </e>

@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.pixeye.ecs": {
-      "version": "https://github.com/PixeyeHQ/actors.unity.git",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "05f6b11dc90bd571ac1e1fea7f2891444b0efbe9"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,

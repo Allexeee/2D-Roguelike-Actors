@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.pixeye.ecs": "https://github.com/PixeyeHQ/actors.unity.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.ide.rider": "1.1.4",
     "com.unity.ide.vscode": "1.2.1",
