@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Roguelike
 {
+  /*
+   * Данный класс предназначен для хранения последовательностей кадров и ключей
+   */
   [CreateAssetMenu(fileName = "Animation Default", menuName = "Data/Animation/Default")]
   [Serializable]
   public class SoAnimation : ScriptableObject
@@ -26,11 +29,6 @@ namespace Roguelike
     public SoSequenceNew GetByKey(int key)
     {
       return elements[GetIndexByKey(key)];
-    }
-
-    public virtual bool OverrideNext(ComponentAnimatorNew componentAnimator)
-    {
-      return false;
     }
   }
 }

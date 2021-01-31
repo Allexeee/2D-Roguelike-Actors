@@ -175,6 +175,8 @@
             <e p="ActorPlayer.cs" t="Include" />
             <e p="Common" t="Include">
               <e p="Anim.cs" t="Include" />
+              <e p="AnimationHero.cs" t="Include" />
+              <e p="AnimationImpl.cs" t="Include" />
               <e p="AnimatorGuide.cs" t="Include" />
               <e p="AnimKeys.cs" t="Include" />
               <e p="BufferSortedEntities.cs" t="Include" />
@@ -191,9 +193,7 @@
               <e p="Prefab.cs" t="Include" />
               <e p="Sequence.cs" t="Include" />
               <e p="SoAnimation.cs" t="Include" />
-              <e p="SoAnimationHero.cs" t="Include" />
               <e p="SoSequenceNew.cs" t="Include" />
-              <e p="SOSequencesNew.cs" t="Include" />
               <e p="Tag.cs" t="Include" />
             </e>
             <e p="ComponentAnimator.cs" t="Include" />

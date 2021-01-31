@@ -788,7 +788,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _entity: 0
   prefabReferenceName: 
-  animation: {fileID: 11400000, guid: de241fddea5955544a61804742bfaa9d, type: 2}
+  animationHero:
+    animation: {fileID: 11400000, guid: 7590aa2da99d3494c9bdaa9c4b5d07f6, type: 2}
 --- !u!212 &1539507645
 SpriteRenderer:
   m_ObjectHideFlags: 0

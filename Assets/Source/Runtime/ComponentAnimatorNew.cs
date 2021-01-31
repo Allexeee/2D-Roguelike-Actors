@@ -10,22 +10,8 @@ namespace Roguelike
 {
   public class ComponentAnimatorNew
   {
-    /*
-     * Спрайты меняются не каждый кадр, из-за чего перед установкой след. анимации может пройти несколько кадров.
-     * Но все спрайты меняются в один такт времени, т.е синхронно
-    */
-    public readonly AnimationInfo current = new AnimationInfo(); // Актуальная инфа об анимации
-    public readonly AnimationInfo next    = new AnimationInfo(); // Инфа о том, какой спрайт поставить в след. раз
-
     public SpriteRenderer renderer;
-    public SoAnimation animation;
-    
-    public void Play(AnimKeys key, int frame)
-    {
-      next.sequence = animation.GetByKey((int) key);
-      next.frame    = Mathf.Clamp(frame, 0, next.sequence.countFrames);
-      next.key      = (int) key;
-    }
+    public AnimationImpl animationImpl;
   }
 
   public class AnimationInfo
@@ -66,9 +52,8 @@ namespace Roguelike
       foreach (var id in disposed)
       {
         ref var component = ref components[id];
-        component.current.Dispose();
-        component.next.Dispose();
         component.renderer = default;
+        component.animationImpl = default;
       }
     }
   }

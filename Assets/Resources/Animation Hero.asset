@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b3c057085a4d5297ff76d5f3445a87, type: 3}
+  m_Script: {fileID: 11500000, guid: 7de5543db7074605a7188b4e2b0a34c2, type: 3}
   m_Name: Animation Hero
   m_EditorClassIdentifier: 
   elements:

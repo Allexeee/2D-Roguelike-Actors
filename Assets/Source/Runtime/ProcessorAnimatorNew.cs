@@ -20,21 +20,8 @@ namespace Roguelike
 			foreach (ent entity in animators)
 			{
 				var canimator = entity.ComponentAnimatorNew();
-				
-				var current = canimator.current;
-				var next    = canimator.next;
-				current.frame    = next.frame;
-				current.key      = next.key;
-				current.sequence = next.sequence;
-      
-				if (canimator.animation.OverrideNext(canimator)) goto finish;
-				
-				next.frame    = current.IsLastFrame() ? 0 : current.frame + 1;
-				next.key      = current.key;
-				next.sequence = canimator.animation.GetByKey(current.key);
-				
-				finish:
-				canimator.renderer.sprite = current.sequence.sprites[current.frame];
+
+				canimator.renderer.sprite = canimator.animationImpl.GetNextSprite();
 			}
 		}
 	}

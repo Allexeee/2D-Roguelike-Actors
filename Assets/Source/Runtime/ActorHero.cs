@@ -9,31 +9,30 @@ namespace Roguelike
 {
 	sealed class ActorHero : Actor
 	{
-		public SoAnimationHero animation;
-
+		public AnimationHero animationHero;
 		ComponentAnimatorNew canimator;
 		protected override void Setup()
 		{
 			canimator = entity.Set<ComponentAnimatorNew>();
-
-			canimator.animation = animation;
+			canimator.animationImpl = animationHero;
+			canimator.animationImpl.Bootstrap(AnimKeys.Idle, 0); // Этот метод можно вынести куда-нибудь в систему. Но тогда и данные для "старта" тоже придется вынести.
 			canimator.renderer = GetComponent<SpriteRenderer>();
-			canimator.Play(AnimKeys.Idle, 0);
+			canimator.animationImpl.Play(AnimKeys.Idle, 0);
 		}
 
 		void Update()
 		{
 			if (Input.GetKeyDown(KeyCode.Alpha1))
 			{
-				canimator.Play(AnimKeys.Idle, 0);
+				canimator.animationImpl.Play(AnimKeys.Idle, 0);
 			}
 			if (Input.GetKeyDown(KeyCode.Alpha2))
 			{
-				canimator.Play(AnimKeys.Chop, 0);
+				canimator.animationImpl.Play(AnimKeys.Chop, 0);
 			}
 			if (Input.GetKeyDown(KeyCode.Alpha3))
 			{
-				canimator.Play(AnimKeys.Hit, 0);
+				canimator.animationImpl.Play(AnimKeys.Hit, 0);
 			}
 		}
 	}
