@@ -13,7 +13,7 @@ namespace Roguelike
 
 		public Sequences map = new Sequences(); // контейнер анимаций
 
-		public int frame;          // кадр
+		public int frameNext;          // кадр
 		public int animation_next; // id анимации
 		public int times;          // сколько раз нужно проиграть анимацию
 

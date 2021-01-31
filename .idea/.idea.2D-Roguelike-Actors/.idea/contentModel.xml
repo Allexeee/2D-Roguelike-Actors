@@ -14,7 +14,7 @@
             <e p="Drawers" t="Include">
               <e p="DrawerEnumFlags.cs" t="Include" />
               <e p="DrawerInfoBox.cs" t="Include" />
-              <e p="DrawerScene.cs" t="Include" />
+              <e p="DrawerTags.cs" t="Include" />
               <e p="StyleFramework.cs" t="Include" />
             </e>
             <e p="Helpers" t="Include">
@@ -30,132 +30,136 @@
               <e p="InspectorReordarable.cs" t="Include" />
             </e>
             <e p="SceneProcessors" t="Include">
+              <e p="PostHandleActors.cs" t="Include" />
               <e p="PostHandleComponents.cs" t="Include" />
-              <e p="PostHandleDataObjects.cs" t="Include" />
-              <e p="PostHandleDatas.cs" t="Include" />
-              <e p="PostHandleFactories.cs" t="Include" />
               <e p="PostHandleFrameworkPatch.cs" t="Include" />
-              <e p="PostHandlePools.cs" t="Include" />
+              <e p="PostHandleLayers.cs" t="Include" />
+              <e p="PostHandleProcessor.cs" t="Include" />
               <e p="PostHandleScenes.cs" t="Include" />
               <e p="PostHandleSymbols.cs" t="Include" />
-              <e p="PostHandleTags.cs" t="Include" />
+              <e p="PostHandleTools.cs" t="Include" />
             </e>
             <e p="Templates" t="Include">
+              <e p="TmpActor.txt" t="Include" />
               <e p="TmpComponent.txt" t="Include" />
               <e p="TmpComponentStruct.txt" t="Include" />
               <e p="TmpData.txt" t="Include" />
               <e p="TmpDataTags.txt" t="Include" />
               <e p="TmpFactory.txt" t="Include" />
+              <e p="TmpLayer.txt" t="Include" />
+              <e p="TmpProcessor.txt" t="Include" />
             </e>
             <e p="Windows" t="Include">
               <e p="EditorWindowFramework.cs" t="Include" />
             </e>
           </e>
           <e p="Runtime" t="Include">
-            <e p="ArrayLen.cs" t="Include" />
             <e p="Attributes" t="Include">
-              <e p="AddedAttribute.cs" t="Include" />
+              <e p="ActorsComponent.cs" t="Include" />
               <e p="BindAttribute.cs" t="Include" />
               <e p="ButtonAttribute.cs" t="Include" />
               <e p="EnumFlagAttribute.cs" t="Include" />
+              <e p="EventsAttribute.cs" t="Include" />
+              <e p="ExcludeByAttribute.cs" t="Include" />
               <e p="FoldoutGroupAttribute.cs" t="Include" />
+              <e p="GroupByAttribute.cs" t="Include" />
               <e p="Il2CppSetOptionAttribute.cs" t="Include" />
               <e p="InfoBoxAttribute.cs" t="Include" />
               <e p="ReadOnlyAttribute.cs" t="Include" />
               <e p="ReorderableAttribute.cs" t="Include" />
-              <e p="RequireAttribute.cs" t="Include" />
               <e p="TagFieldAttribute.cs" t="Include" />
               <e p="TagFilterAttribute.cs" t="Include" />
+            </e>
+            <e p="Core" t="Include">
+              <e p="Every.cs" t="Include" />
+              <e p="ImplActor.cs" t="Include" />
+              <e p="ImplEcs.cs" t="Include" />
+              <e p="ImplEntity.cs" t="Include" />
+              <e p="ImplObj.cs" t="Include" />
+              <e p="ImplObserver.cs" t="Include" />
+              <e p="Layer.cs" t="Include" />
+              <e p="LayerImpl.cs" t="Include" />
+              <e p="LayerKernel.cs" t="Include" />
+              <e p="LayerMain.cs" t="Include" />
+              <e p="SceneMain.cs" t="Include" />
+              <e p="SceneSub.cs" t="Include" />
+              <e p="SettingsActors.cs" t="Include" />
+              <e p="Time.cs" t="Include" />
             </e>
             <e p="Helpers" t="Include">
               <e p="HelperArray.cs" t="Include" />
               <e p="HelperDelegates.cs" t="Include" />
-              <e p="HelperEntity.cs" t="Include" />
               <e p="HelperFramework.cs" t="Include" />
-              <e p="HelperThreads.cs" t="Include" />
-              <e p="Obj.cs" t="Include" />
-              <e p="Rand.cs" t="Include" />
-            </e>
-            <e p="HRProfile" t="Include">
-              <e p="HRProfile.cs" t="Include" />
+              <e p="HelperGameObjects.cs" t="Include" />
+              <e p="HelperRandom.cs" t="Include" />
+              <e p="HelperTags.cs" t="Include" />
             </e>
             <e p="Interfaces" t="Include">
-              <e p="IActor.cs" t="Include" />
-              <e p="IAwake.cs" t="Include" />
               <e p="IBind.cs" t="Include" />
-              <e p="IKernel.cs" t="Include" />
               <e p="IRandom.cs" t="Include" />
               <e p="IReceive.cs" t="Include" />
-              <e p="IRequireStarter.cs" t="Include" />
+              <e p="IRequireActorsLayer.cs" t="Include" />
+              <e p="ITag.cs" t="Include" />
               <e p="ITick.cs" t="Include" />
               <e p="ITickFixed.cs" t="Include" />
               <e p="ITickLate.cs" t="Include" />
             </e>
-            <e p="LibComponents" t="Include">
-              <e p="ComponentAddComponents.cs" t="Include" />
-              <e p="ComponentReleaseEntity.cs" t="Include" />
-              <e p="ComponentRemoveComponents.cs" t="Include" />
-            </e>
             <e p="LibEcs" t="Include">
-              <e p="Buffer.cs" t="Include" />
-              <e p="CacheEntity.cs" t="Include" />
+              <e p="ComponentMask.cs" t="Include" />
+              <e p="ComponentObserver.cs" t="Include" />
               <e p="Composition.cs" t="Include" />
+              <e p="EcsTags.cs" t="Include" />
               <e p="ent.cs" t="Include" />
-              <e p="Entity.cs" t="Include" />
-              <e p="Entity.Handle.Create.cs" t="Include" />
-              <e p="Framework.cs" t="Include" />
+              <e p="Ent_Handle_Components.cs" t="Include" />
+              <e p="Ent_Handle_Mono.cs" t="Include" />
+              <e p="Ent_Handle_Tags.cs" t="Include" />
+              <e p="EntityMeta.cs" t="Include" />
               <e p="GroupCore.cs" t="Include" />
-              <e p="GroupManual.cs" t="Include" />
-            </e>
-            <e p="LibMath" t="Include">
-              <e p="float2.cs" t="Include" />
-              <e p="Math.cs" t="Include" />
-            </e>
-            <e p="LibMisc" t="Include">
-              <e p="CacheGroup.cs" t="Include" />
-              <e p="debug.cs" t="Include" />
-              <e p="ents.cs" t="Include" />
-              <e p="FastComparable.cs" t="Include" />
-              <e p="FastString.cs" t="Include" />
-              <e p="Hashcode.cs" t="Include" />
-              <e p="Pluggable.cs" t="Include" />
+              <e p="GroupCore_Handle_Cache.cs" t="Include" />
             </e>
             <e p="LibMono" t="Include">
               <e p="Actor.cs" t="Include" />
+              <e p="Model.cs" t="Include" />
               <e p="MonoCached.cs" t="Include" />
+              <e p="ScriptableBuild.cs" t="Include" />
               <e p="Storage.cs" t="Include" />
             </e>
             <e p="LibPools" t="Include">
-              <e p="MemPool.cs" t="Include" />
               <e p="Pool.cs" t="Include" />
               <e p="PoolContainer.cs" t="Include" />
+              <e p="PoolMem.cs" t="Include" />
               <e p="UnmanagedMemory.cs" t="Include" />
             </e>
             <e p="LibProcessors" t="Include">
-              <e p="Box.cs" t="Include" />
-              <e p="coroutine.cs" t="Include" />
               <e p="Processor.cs" t="Include" />
-              <e p="ProcessorGroups.cs" t="Include" />
-              <e p="ProcessorTimer.cs" t="Include" />
+              <e p="ProcessorCoroutine.cs" t="Include" />
+              <e p="ProcessorEcs.cs" t="Include" />
+              <e p="ProcessorEcs.Handle.Groups.cs" t="Include" />
+              <e p="ProcessorEcs.Handle.Operations.cs" t="Include" />
+              <e p="ProcessorObserver.cs" t="Include" />
+              <e p="ProcessorSignals.cs" t="Include" />
               <e p="ProcessorUpdate.cs" t="Include" />
-              <e p="ProcessorUpdateGroups.cs" t="Include" />
             </e>
-            <e p="LibSingleton" t="Include">
-              <e p="SceneCoroutine.cs" t="Include" />
-              <e p="Singleton.cs" t="Include" />
-              <e p="Toolbox.cs" t="Include" />
+            <e p="Utils" t="Include">
+              <e p="ActorsBasicUtils.cs" t="Include" />
+              <e p="Box.cs" t="Include" />
+              <e p="Buffer.cs" t="Include" />
+              <e p="BufferCircular.cs" t="Include" />
+              <e p="ents.cs" t="Include" />
+              <e p="FastComparable.cs" t="Include" />
+              <e p="Hashcode.cs" t="Include" />
+              <e p="Pluggable.cs" t="Include" />
             </e>
-            <e p="LibStarter" t="Include">
-              <e p="SceneReference.cs" t="Include" />
-              <e p="Starter.cs" t="Include" />
-              <e p="StarterKernel.cs" t="Include" />
+            <e p="Vendor" t="Include">
+              <e p="FastString.cs" t="Include" />
+              <e p="HRProfile" t="Include">
+                <e p="HRProfile.cs" t="Include" />
+              </e>
             </e>
-            <e p="LibTime" t="Include">
-              <e p="Time.cs" t="Include" />
-              <e p="Timer.cs" t="Include" />
-            </e>
-            <e p="Settings" t="Include">
-              <e p="SettingsEngine.cs" t="Include" />
+            <e p="Wrappers" t="Include">
+              <e p="Comparers.cs" t="Include" />
+              <e p="IWrap.cs" t="Include" />
+              <e p="Wrap.cs" t="Include" />
             </e>
           </e>
         </e>
@@ -167,10 +171,12 @@
         <e p="Source" t="Include">
           <e p="Runtime" t="Include">
             <e p="ActorEnemy.cs" t="Include" />
+            <e p="ActorHero.cs" t="Include" />
             <e p="ActorPlayer.cs" t="Include" />
             <e p="Common" t="Include">
               <e p="Anim.cs" t="Include" />
               <e p="AnimatorGuide.cs" t="Include" />
+              <e p="AnimKeys.cs" t="Include" />
               <e p="BufferSortedEntities.cs" t="Include" />
               <e p="Database.Animations.cs" t="Include" />
               <e p="Database.Units.cs" t="Include" />
@@ -184,9 +190,14 @@
               <e p="Phys.cs" t="Include" />
               <e p="Prefab.cs" t="Include" />
               <e p="Sequence.cs" t="Include" />
+              <e p="SoAnimation.cs" t="Include" />
+              <e p="SoAnimationHero.cs" t="Include" />
+              <e p="SoSequenceNew.cs" t="Include" />
+              <e p="SOSequencesNew.cs" t="Include" />
               <e p="Tag.cs" t="Include" />
             </e>
             <e p="ComponentAnimator.cs" t="Include" />
+            <e p="ComponentAnimatorNew.cs" t="Include" />
             <e p="ComponentEnemy.cs" t="Include" />
             <e p="ComponentHealth.cs" t="Include" />
             <e p="ComponentObject.cs" t="Include" />
@@ -196,10 +207,12 @@
             <e p="LayerApp.cs" t="Include" />
             <e p="LayerGame.cs" t="Include" />
             <e p="ProcessorAnimator.cs" t="Include" />
+            <e p="ProcessorAnimatorNew.cs" t="Include" />
             <e p="ProcessorCollider.cs" t="Include" />
             <e p="ProcessorEnemy.cs" t="Include" />
             <e p="ProcessorHealth.cs" t="Include" />
             <e p="ProcessorPlayer.cs" t="Include" />
+            <e p="Seq.cs" t="Include" />
             <e p="SignalChangeHealth.cs" t="Include" />
           </e>
         </e>

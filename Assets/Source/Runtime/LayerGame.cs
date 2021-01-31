@@ -11,12 +11,13 @@ namespace Roguelike
     {
       Add<ProcessorCollider>();
       Add<ProcessorAnimator>();
+      Add<ProcessorAnimatorNew>();
       Add<ProcessorHealth>();
 
       Add<ProcessorPlayer>();
       Add<ProcessorEnemy>();
 
-      Game.Create.Board();
+      // Game.Create.Board();
     }
 
     protected override void OnLayerDestroy()

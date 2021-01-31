@@ -11,7 +11,7 @@ namespace Roguelike
 	{
 		public static class Draw
 		{
-			public const float TimeBetweenFrames = 0.064f; //0.064f;
+			public const float TimeBetweenFrames = 0.166f; //0.064f;
 
 			public static float SetAnimation(in ent entity, int animation_id, int times = Anim.Loop, int frame = 0)
 			{
@@ -24,11 +24,11 @@ namespace Roguelike
 
 				ref var sequence = ref cAnimator.map[animation_id];
 
-				cAnimator.frame          = frame == Anim.RandomFrame ? Random.Range(0, sequence.sprites.Length) : frame;
-				cObject.renderer.sprite  = sequence[cAnimator.frame];
+				cAnimator.frameNext          = frame == Anim.RandomFrame ? Random.Range(0, sequence.sprites.Length) : frame;
+				cObject.renderer.sprite  = sequence[cAnimator.frameNext];
 				cAnimator.animation_next = animation_id;
 				cAnimator.overriding     = true;
-				cAnimator.animation_time = times * sequence.sprites.Length * TimeBetweenFrames - cAnimator.frame * TimeBetweenFrames;
+				cAnimator.animation_time = times * sequence.sprites.Length * TimeBetweenFrames - cAnimator.frameNext * TimeBetweenFrames;
 				return cAnimator.animation_time;
 			}
 			
@@ -39,7 +39,7 @@ namespace Roguelike
 				if (!cAnimator.overriding) return;
 
 				cAnimator.overriding = false;
-				cAnimator.frame      = 0;
+				cAnimator.frameNext      = 0;
 				cAnimator.times      = 1;
 			}
 		}

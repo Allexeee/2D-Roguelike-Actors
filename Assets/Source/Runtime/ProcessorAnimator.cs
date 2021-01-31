@@ -19,10 +19,10 @@ namespace Roguelike
 			{
 				var cAnimator = entity.ComponentAnimator();
 
-				if (cAnimator.frame == Anim.RandomFrame)
+				if (cAnimator.frameNext == Anim.RandomFrame)
 				{
 					ref var sequence = ref cAnimator.map[cAnimator.animation_next];
-					cAnimator.frame = Random.Range(0, sequence.sprites.Length);
+					cAnimator.frameNext = Random.Range(0, sequence.sprites.Length);
 				}
 			}
 		}
@@ -49,7 +49,7 @@ namespace Roguelike
 
 				ref var sequence = ref cAnimator.map[cAnimator.animation_next];
 
-				if (cAnimator.frame == sequence.sprites.Length)
+				if (cAnimator.frameNext == sequence.sprites.Length)
 				{
 					if (--cAnimator.times <= 0)
 					{
@@ -61,10 +61,10 @@ namespace Roguelike
 						else cAnimator.overriding = false;
 					}
 
-					cAnimator.frame = 0;
+					cAnimator.frameNext = 0;
 				}
 
-				cObject.renderer.sprite = sequence.sprites[cAnimator.frame++];
+				cObject.renderer.sprite = sequence.sprites[cAnimator.frameNext++];
 			}
 		}
 	}
